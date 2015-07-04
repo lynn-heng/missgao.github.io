@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Nemo's home</title>
+		<meta name="description" content="">
+		<meta name="author" content="nemo">
+
+		<link rel="stylesheet" href="http://www.missgao.net/theme/css/foundation.css" />
+		<link rel="stylesheet" href="http://www.missgao.net/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="http://www.missgao.net/theme/css/custom.css" />
+
+
+		<script src="http://www.missgao.net/theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+		<link href="http://www.missgao.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Nemo's home Atom Feed" />
+
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">Nemo's&nbsp;home</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="http://www.missgao.net">Home</a></li>
+						<li><label>Categories</label></li>
+							<li class="active"><a href="http://www.missgao.net/category/linux.html">linux</a></li>
+							<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="http://getpelican.com/">Pelican</a></li>
+							<li><a href="http://python.org/">Python.org</a></li>
+							<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+							<li><a href="#">You can modify those links in your config file</a></li>
+
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
+									<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
+									<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
+									<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
+									<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
+									<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
+									<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
+
+						<li><label>Social</label></li>
+							<li><a href="#">Another social link</a></li>
+							<li><a href="#">You can add links in your config file</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="http://www.missgao.net/">Nemo's home</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li class="active"><a href="http://www.missgao.net/category/linux.html">linux</a></li>
+								<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>shell中的for循环疑问</h2>
+	<p>如下，循环时使用s*和<code>ls s*</code>还是有不同的，具体的原因有时间得慢慢研究（自己掌握的基础知识还是不扎实）。先记录下以备后面研究。</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">touch</span> <span class="n">ss</span><span class="err">\</span> <span class="n">s1</span>
+<span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="n">s</span><span class="o">*</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span> <span class="mi">835826</span> <span class="n">Sep</span> <span class="mi">28</span> <span class="mi">22</span><span class="o">:</span><span class="mo">03</span> <span class="n">search</span><span class="p">.</span><span class="n">tgz</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span>    <span class="mi">472</span> <span class="n">Sep</span> <span class="mi">23</span> <span class="mi">16</span><span class="o">:</span><span class="mi">51</span> <span class="n">ssh</span><span class="o">-</span><span class="n">expect</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span>    <span class="mi">506</span> <span class="n">Sep</span> <span class="mi">28</span> <span class="mi">15</span><span class="o">:</span><span class="mo">00</span> <span class="n">ssh</span><span class="o">-</span><span class="n">passwd</span><span class="p">.</span><span class="n">conf</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span>      <span class="mi">0</span> <span class="n">Oct</span>  <span class="mi">9</span> <span class="mi">21</span><span class="o">:</span><span class="mi">53</span> <span class="n">ss</span> <span class="n">s1</span>
+<span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="k">for</span> <span class="n">file</span> <span class="n">in</span> <span class="n">s</span><span class="o">*</span><span class="p">;</span><span class="k">do</span> <span class="n">echo</span> <span class="err">$</span><span class="n">file</span><span class="p">;</span><span class="n">done</span>
+<span class="n">search</span><span class="p">.</span><span class="n">tgz</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">expect</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">passwd</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">ss</span> <span class="n">s1</span>
+<span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="k">for</span> <span class="n">file</span> <span class="n">in</span> <span class="err">`</span><span class="n">ls</span> <span class="n">s</span><span class="o">*</span><span class="err">`</span><span class="p">;</span><span class="k">do</span> <span class="n">echo</span> <span class="err">$</span><span class="n">file</span><span class="p">;</span><span class="n">done</span>
+<span class="n">search</span><span class="p">.</span><span class="n">tgz</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">expect</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">passwd</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">ss</span>
+<span class="n">s1</span>
+</pre></div>
+	<hr/>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Thu 09 October 2014. Tags: <a href="http://www.missgao.net/tag/linux.html">linux</a>, <a href="http://www.missgao.net/tag/shell.html">shell</a>, </h6>
+</article>
+
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'heng';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="http://getpelican.com/">Pelican</a></li>
+									<li><a href="http://python.org/">Python.org</a></li>
+									<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+									<li><a href="#">You can modify those links in your config file</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
+											<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
+											<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
+											<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
+											<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
+											<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
+											<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="#">Another social link</a></li>
+									<li><a href="#">You can add links in your config file</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a><br />本站点内容采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a>进行许可。</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="http://www.missgao.net/theme/js/jquery.js"></script>
+		<script src="http://www.missgao.net/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>

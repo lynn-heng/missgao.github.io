@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Nemo's home</title><link href="http://www.missgao.net/" rel="alternate"></link><link href="http://www.missgao.net/feeds/all.atom.xml" rel="self"></link><id>http://www.missgao.net/</id><updated>2015-02-09T00:00:00+08:00</updated><entry><title>exquilla 破解</title><link href="http://www.missgao.net/exquilla-po-jie.html" rel="alternate"></link><updated>2015-02-09T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2015-02-09:exquilla-po-jie.html</id><summary type="html">&lt;p&gt;注册验证相关的算法都在components里面的一个DLL文件exquilla-beta-i686.dll（linux下是一个同名的.so文件），注册码的结构是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;EX0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2015&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;80324&lt;/span&gt;&lt;span class="n"&gt;c6d8724c3e4cd0111b51a5718ad&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可以看到，注册码被用逗号分成了四个部分：&lt;/p&gt;
+&lt;p&gt;第一部分是注册类型，EX0是免费给的试用类型，我不知道EX1、EX2是什么情况，但试了下，EX1是可以用的&lt;/p&gt;
+&lt;p&gt;第二部分是邮件，&lt;em&gt;@&lt;/em&gt;是免费给的60天试用的，这里要填有效的Exchange邮箱，可以在选项里Valid Emails里看到&lt;/p&gt;
+&lt;p&gt;第三部分是license过期日期。&lt;/p&gt;
+&lt;p&gt;第四部分是校验码，分别是前三个部分再加上356B4B5C算出来的MD5值。&lt;/p&gt;
+&lt;p&gt;例如，注册类型EX1、Exchange邮箱abc@missgao.com，到期日期2015-12-18，可以计算出MD5值为：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;MD5&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;EX1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;abc&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;missgao&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2015&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;356&lt;/span&gt;&lt;span class="n"&gt;B4B5C&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+&lt;span class="n"&gt;d85f9f9e7d8c46bfb04956c2d471a736&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;用计算出的MD5值作为注册码的最后一部分即可注册成功。&lt;/p&gt;</summary><category term="thunderbird"></category></entry><entry><title>awesome音量实现</title><link href="http://www.missgao.net/awesomeyin-liang-shi-xian.html" rel="alternate"></link><updated>2014-10-29T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-10-29:awesomeyin-liang-shi-xian.html</id><summary type="html">&lt;p&gt;&lt;img alt="awesome Volume" src="http://imglf0.ph.126.net/xR2Xw3WHhbGZ1sV5t_oVlA==/3830030008201934964.png" /&gt;
+自己实现了awesome的音量。没有使用网上的方法（大多是使用vicious，看了下它的代码，感觉不太合适），自己对着官方说明看了看，简单实现如图所示。&lt;/p&gt;
+&lt;p&gt;1.上面显示音量图标，目前是静音，如果不是静音则显示正常声音图标。
+2.指向声音图标显示当前音量框，即使静音也显示，因为切换至非静音时就是这个音量；移出声音图标音量框消失。
+3.使用静音键切换静音非静音，同时音量图标变化
+4.使用声音增大缩小键显示音量框&lt;/p&gt;
+&lt;p&gt;下一步再做个电量显示，这样右上角的信息显示查不多了（内存、CPU之类的监控不想放那里，感觉占地儿），终级的把时间显示那边转成日历方式，并加上事件提醒（使用cal命令结果，不知是否能实现）&lt;/p&gt;</summary><category term="vim"></category></entry><entry><title>Y2K38问题</title><link href="http://www.missgao.net/y2k38wen-ti.html" rel="alternate"></link><updated>2014-10-23T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-10-23:y2k38wen-ti.html</id><summary type="html">&lt;p&gt;今天习惯性pacman -Syu.发现linux kernel出3.17了。&lt;/p&gt;
+&lt;p&gt;网上查了下3.17的新特性，发现有一项是解决2038年问题，以前只知2000年问题，于是查了一下，原来如此：
+在计算机应用上，2038年问题可能会导致某些软件在2038年无法正常工作。所有使用UNIX时间表示时间的程序都将受其影响，因为它们以自1970年1月1日经过的秒数（忽略闰秒）来表示时间。这种时间表示法在类Unix（Unix-like）操作系统上是一个标准，并会影响以其C编程语言开发给其他大部份操作系统使用的软件。在大部份的32位操作系统上，此“time_t”数据模式使用一个有正负号的32位元整数(signedint32)存储计算的秒数。依照此“time_t”标准，在此格式能被表示的最后时间是2038年1月19日03:14:07，星期二（UTC）。超过此一瞬间，时间将会被掩盖（wrap around）且在内部被表示为一个负数，并造成程序无法工作，因为它们无法将此时间识别为2038年，而可能会依个别实作而跳回1970年或1901年。错误的计算及动作可能因此产生。&lt;/p&gt;</summary><category term="linux"></category></entry><entry><title>linux连接中文无线</title><link href="http://www.missgao.net/linuxlian-jie-zhong-wen-wu-xian.html" rel="alternate"></link><updated>2014-10-16T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-10-16:linuxlian-jie-zhong-wen-wu-xian.html</id><summary type="html">&lt;p&gt;在客户的办公室连接内网，可这边的无线名称为中文，我试了下直接将对应中文写入配置文件（使用的netctl连接），结果不行。&lt;/p&gt;
+&lt;p&gt;又使用iw 的scan命令查询，得到的对应SSID是以\x开始的16进制串，将对应的一串16进制设置进去报SSID太长，又是不行。&lt;/p&gt;
+&lt;p&gt;结果只有先用WINDOWS来连。网上查来查去，也没有找到相应的解决方案。&lt;/p&gt;
+&lt;p&gt;后来自己仔细想了下，问题应该出在编码上，我的locale设置的utf-8。中文无线名称的编码应该就是GB2312。后来就在编码上测试了很久，最终发现原来是很简单一件事：&lt;/p&gt;
+&lt;p&gt;我还是先建立了一个配置文件，SSID处正常填入中文。此时该文件为UTF8编码，再使用iconv进行编码转换(utf8 -&amp;gt; gb2312)，得到一个新的文件，使用此配置文件连接就直接成功了。如果不是使用netctl而是使用wpa_supplicant命令直接连接，那么将wpa_supplicant的配置文件存成或转换gb2312编码即可。&lt;/p&gt;</summary><category term="linux"></category><category term="wifi"></category></entry><entry><title>shell中的for循环疑问</title><link href="http://www.missgao.net/shellzhong-de-forxun-huan-yi-wen.html" rel="alternate"></link><updated>2014-10-09T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-10-09:shellzhong-de-forxun-huan-yi-wen.html</id><summary type="html">&lt;p&gt;如下，循环时使用s*和&lt;code&gt;ls s*&lt;/code&gt;还是有不同的，具体的原因有时间得慢慢研究（自己掌握的基础知识还是不扎实）。先记录下以备后面研究。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;victor&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;MISSGAO&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;touch&lt;/span&gt; &lt;span class="n"&gt;ss&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt; &lt;span class="n"&gt;s1&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;victor&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;MISSGAO&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;victor&lt;/span&gt; &lt;span class="n"&gt;users&lt;/span&gt; &lt;span class="mi"&gt;835826&lt;/span&gt; &lt;span class="n"&gt;Sep&lt;/span&gt; &lt;span class="mi"&gt;28&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rwxr&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;victor&lt;/span&gt; &lt;span class="n"&gt;users&lt;/span&gt;    &lt;span class="mi"&gt;472&lt;/span&gt; &lt;span class="n"&gt;Sep&lt;/span&gt; &lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;victor&lt;/span&gt; &lt;span class="n"&gt;users&lt;/span&gt;    &lt;span class="mi"&gt;506&lt;/span&gt; &lt;span class="n"&gt;Sep&lt;/span&gt; &lt;span class="mi"&gt;28&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;passwd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;victor&lt;/span&gt; &lt;span class="n"&gt;users&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;Oct&lt;/span&gt;  &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;53&lt;/span&gt; &lt;span class="n"&gt;ss&lt;/span&gt; &lt;span class="n"&gt;s1&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;victor&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;MISSGAO&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;
+&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt;
+&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt;
+&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;passwd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt; &lt;span class="n"&gt;s1&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;victor&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;MISSGAO&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;
+&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt;
+&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt;
+&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;passwd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;
+&lt;span class="n"&gt;ss&lt;/span&gt;
+&lt;span class="n"&gt;s1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="linux"></category><category term="shell"></category></entry><entry><title>LINUX下个别软件破解记录</title><link href="http://www.missgao.net/linuxxia-ge-bie-ruan-jian-po-jie-ji-lu.html" rel="alternate"></link><updated>2014-09-30T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-09-30:linuxxia-ge-bie-ruan-jian-po-jie-ji-lu.html</id><summary type="html">&lt;p&gt;SecureCRT：&lt;/p&gt;
+&lt;p&gt;因为记录密码、保存LOG、自带SFTP，可以自写脚本等功能，在LINUX下也还是喜欢使用。&lt;/p&gt;
+&lt;p&gt;使用16进制编辑器（比如hexedit之类），将6e533e406a45f0b6372f3ea10717000c7120127cd915cef8ed1a3f2c5b替换为785782391ad0b9169f17415dd35f002790175204e3aa65ea10cff20818。之后随便找个注册机或注册码就可以注册了。&lt;/p&gt;
+&lt;p&gt;SecureFX：&lt;/p&gt;
+&lt;p&gt;使用16进制编辑器（比如hexedit之类），将c847abca184a6c5dfa47dc8efcd700019dc9df3743c640f50be307334fea替换为e02954a71cca592c855c91ecd4170001d6c606d38319cbb0deabebb05126。之后随便找个注册机或注册码就可以注册了。&lt;/p&gt;
+&lt;p&gt;Sublime Text Build 2221：&lt;/p&gt;
+&lt;p&gt;使用16进制编辑器（比如hexedit之类），将3342 3032替换为3242 3032。然后使用如下注册码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-----&lt;/span&gt;&lt;span class="n"&gt;BEGIN&lt;/span&gt; &lt;span class="n"&gt;LICENSE&lt;/span&gt;&lt;span class="o"&gt;-----&lt;/span&gt;
+&lt;span class="n"&gt;nemo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;heng&lt;/span&gt;
+&lt;span class="n"&gt;Unlimited&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt; &lt;span class="n"&gt;License&lt;/span&gt;
+&lt;span class="n"&gt;EA7E&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;21455&lt;/span&gt;
+&lt;span class="mi"&gt;18009210&lt;/span&gt;&lt;span class="n"&gt;C245D7ED257C7DE27E6DBEAE&lt;/span&gt;
+&lt;span class="mi"&gt;61&lt;/span&gt;&lt;span class="n"&gt;D50E0DEE242AC0011705E868980175&lt;/span&gt;
+&lt;span class="mf"&gt;86E2&lt;/span&gt;&lt;span class="n"&gt;A8D9A1A174499D47ECBDD2423ED8&lt;/span&gt;
+&lt;span class="mf"&gt;0E61&lt;/span&gt;&lt;span class="n"&gt;B819F902723D413237F8887387E1&lt;/span&gt;
+&lt;span class="n"&gt;EC5F607AFD49D7CED0A20B91500C2E14&lt;/span&gt;
+&lt;span class="mf"&gt;8233575F&lt;/span&gt;&lt;span class="mi"&gt;65&lt;/span&gt;&lt;span class="n"&gt;C1BB7D27425CEBF7063B11&lt;/span&gt;
+&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="n"&gt;DAA634EDF7DE1940433C89A273E52A&lt;/span&gt;
+&lt;span class="mi"&gt;559239&lt;/span&gt;&lt;span class="n"&gt;ED4E49383F0A2586041C510369&lt;/span&gt;
+&lt;span class="o"&gt;-----&lt;/span&gt;&lt;span class="n"&gt;END&lt;/span&gt; &lt;span class="n"&gt;LICENSE&lt;/span&gt;&lt;span class="o"&gt;-----&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sublime Text Build 3065：&lt;/p&gt;
+&lt;p&gt;直接使用下面三个LICENSE中的任意一个注册即可&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-----&lt;/span&gt; &lt;span class="n"&gt;BEGIN&lt;/span&gt; &lt;span class="n"&gt;LICENSE&lt;/span&gt; &lt;span class="o"&gt;-----&lt;/span&gt;
+&lt;span class="n"&gt;Andrew&lt;/span&gt; &lt;span class="n"&gt;Weber&lt;/span&gt;
+&lt;span class="n"&gt;Single&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt; &lt;span class="n"&gt;License&lt;/span&gt;
+&lt;span class="n"&gt;EA7E&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;855605&lt;/span&gt;
+&lt;span class="mi"&gt;813&lt;/span&gt;&lt;span class="n"&gt;A03DD&lt;/span&gt; &lt;span class="mf"&gt;5E4&lt;/span&gt;&lt;span class="n"&gt;AD9E6&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="n"&gt;C0EEB94&lt;/span&gt; &lt;span class="n"&gt;BC99798F&lt;/span&gt;
+&lt;span class="mi"&gt;942194&lt;/span&gt;&lt;span class="n"&gt;A6&lt;/span&gt; &lt;span class="mf"&gt;02396E98&lt;/span&gt; &lt;span class="n"&gt;E62C9979&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;BB979FE&lt;/span&gt;
+&lt;span class="mi"&gt;91424&lt;/span&gt;&lt;span class="n"&gt;C9D&lt;/span&gt; &lt;span class="n"&gt;A45400BF&lt;/span&gt; &lt;span class="n"&gt;F6747D88&lt;/span&gt; &lt;span class="mf"&gt;2F&lt;/span&gt;&lt;span class="n"&gt;B88078&lt;/span&gt;
+&lt;span class="mf"&gt;90F&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;CC94&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;CDC92DC&lt;/span&gt; &lt;span class="mi"&gt;8457107&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;F151657B&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;D22E383&lt;/span&gt; &lt;span class="n"&gt;A997F016&lt;/span&gt; &lt;span class="mi"&gt;42397640&lt;/span&gt; &lt;span class="mf"&gt;33F&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="n"&gt;CFC&lt;/span&gt;
+&lt;span class="n"&gt;E1D0AE85&lt;/span&gt; &lt;span class="n"&gt;A0BBD039&lt;/span&gt; &lt;span class="mf"&gt;0E9&lt;/span&gt;&lt;span class="n"&gt;C8D55&lt;/span&gt; &lt;span class="n"&gt;E1B89D5D&lt;/span&gt;
+&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;CDB7036&lt;/span&gt; &lt;span class="n"&gt;E56DE1C0&lt;/span&gt; &lt;span class="n"&gt;EFCC0840&lt;/span&gt; &lt;span class="mi"&gt;650&lt;/span&gt;&lt;span class="n"&gt;CD3A6&lt;/span&gt;
+&lt;span class="n"&gt;B98FC99C&lt;/span&gt; &lt;span class="mf"&gt;8F&lt;/span&gt;&lt;span class="n"&gt;AC73EE&lt;/span&gt; &lt;span class="n"&gt;D2B95564&lt;/span&gt; &lt;span class="n"&gt;DF450523&lt;/span&gt;
+&lt;span class="o"&gt;------&lt;/span&gt; &lt;span class="n"&gt;END&lt;/span&gt; &lt;span class="n"&gt;LICENSE&lt;/span&gt; &lt;span class="o"&gt;------&lt;/span&gt;
+&lt;span class="o"&gt;-----&lt;/span&gt; &lt;span class="n"&gt;BEGIN&lt;/span&gt; &lt;span class="n"&gt;LICENSE&lt;/span&gt; &lt;span class="o"&gt;-----&lt;/span&gt;
+&lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;Single&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt; &lt;span class="n"&gt;License&lt;/span&gt;
+&lt;span class="n"&gt;EA7E&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;940129&lt;/span&gt;
+&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;A099EC1&lt;/span&gt; &lt;span class="n"&gt;C0B5C7C5&lt;/span&gt; &lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="n"&gt;EBF0CF&lt;/span&gt; &lt;span class="n"&gt;BE82FE3B&lt;/span&gt;
+&lt;span class="n"&gt;EAC2164A&lt;/span&gt; &lt;span class="mf"&gt;4F&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="n"&gt;EC954&lt;/span&gt; &lt;span class="mf"&gt;4E87&lt;/span&gt;&lt;span class="n"&gt;F1E5&lt;/span&gt; &lt;span class="mf"&gt;7E4&lt;/span&gt;&lt;span class="n"&gt;E85D6&lt;/span&gt;
+&lt;span class="n"&gt;C5605DE6&lt;/span&gt; &lt;span class="n"&gt;DAB003B4&lt;/span&gt; &lt;span class="n"&gt;D60CA4D0&lt;/span&gt; &lt;span class="mi"&gt;77&lt;/span&gt;&lt;span class="n"&gt;CB1533&lt;/span&gt;
+&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;C47F579&lt;/span&gt; &lt;span class="n"&gt;FB3E8476&lt;/span&gt; &lt;span class="n"&gt;EB3AA9A7&lt;/span&gt; &lt;span class="mi"&gt;68&lt;/span&gt;&lt;span class="n"&gt;C43CD9&lt;/span&gt;
+&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="n"&gt;C60B563&lt;/span&gt; &lt;span class="mf"&gt;80F&lt;/span&gt;&lt;span class="n"&gt;E367D&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="n"&gt;CAD14B3&lt;/span&gt; &lt;span class="mf"&gt;54F&lt;/span&gt;&lt;span class="n"&gt;B7A9F&lt;/span&gt;
+&lt;span class="mf"&gt;4123FF&lt;/span&gt;&lt;span class="n"&gt;C4&lt;/span&gt; &lt;span class="n"&gt;D63312BA&lt;/span&gt; &lt;span class="mi"&gt;141&lt;/span&gt;&lt;span class="n"&gt;AF702&lt;/span&gt; &lt;span class="n"&gt;F6BBA254&lt;/span&gt;
+&lt;span class="n"&gt;B094B9C0&lt;/span&gt; &lt;span class="n"&gt;FAA4B04C&lt;/span&gt; &lt;span class="mo"&gt;06&lt;/span&gt;&lt;span class="n"&gt;CC9AFC&lt;/span&gt; &lt;span class="n"&gt;FD412671&lt;/span&gt;
+&lt;span class="mf"&gt;82E3&lt;/span&gt;&lt;span class="n"&gt;AEE0&lt;/span&gt; &lt;span class="mf"&gt;0F0F&lt;/span&gt;&lt;span class="n"&gt;AAA7&lt;/span&gt; &lt;span class="mf"&gt;8F&lt;/span&gt;&lt;span class="n"&gt;A773C9&lt;/span&gt; &lt;span class="mi"&gt;383&lt;/span&gt;&lt;span class="n"&gt;A9E18&lt;/span&gt;
+&lt;span class="o"&gt;------&lt;/span&gt; &lt;span class="n"&gt;END&lt;/span&gt; &lt;span class="n"&gt;LICENSE&lt;/span&gt; &lt;span class="o"&gt;------&lt;/span&gt;
+&lt;span class="o"&gt;-----&lt;/span&gt; &lt;span class="n"&gt;BEGIN&lt;/span&gt; &lt;span class="n"&gt;LICENSE&lt;/span&gt; &lt;span class="o"&gt;-----&lt;/span&gt;
+&lt;span class="n"&gt;J2TeaM&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt; &lt;span class="n"&gt;License&lt;/span&gt;
+&lt;span class="n"&gt;EA7E&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;940282&lt;/span&gt;
+&lt;span class="mi"&gt;45&lt;/span&gt;&lt;span class="n"&gt;CB0D8F&lt;/span&gt; &lt;span class="mi"&gt;09100037&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="n"&gt;D1056EB&lt;/span&gt; &lt;span class="n"&gt;A1DDC1A2&lt;/span&gt;
+&lt;span class="mi"&gt;39&lt;/span&gt;&lt;span class="n"&gt;C102C5&lt;/span&gt; &lt;span class="n"&gt;DF8D0BF0&lt;/span&gt; &lt;span class="n"&gt;FC3B1A94&lt;/span&gt; &lt;span class="mf"&gt;4F&lt;/span&gt;&lt;span class="mi"&gt;2892&lt;/span&gt;&lt;span class="n"&gt;B4&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;AEE61BA&lt;/span&gt; &lt;span class="mi"&gt;65758&lt;/span&gt;&lt;span class="n"&gt;D3B&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;EED551F&lt;/span&gt; &lt;span class="n"&gt;A3E3478C&lt;/span&gt;
+&lt;span class="n"&gt;C1C0E04E&lt;/span&gt; &lt;span class="n"&gt;CA4E4541&lt;/span&gt; &lt;span class="mf"&gt;1F&lt;/span&gt;&lt;span class="n"&gt;C1A2C1&lt;/span&gt; &lt;span class="mf"&gt;3F5F&lt;/span&gt;&lt;span class="n"&gt;B6DB&lt;/span&gt;
+&lt;span class="n"&gt;CFDA1551&lt;/span&gt; &lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="n"&gt;B05B5D&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;D3C8CFE&lt;/span&gt; &lt;span class="n"&gt;FA8B4285&lt;/span&gt;
+&lt;span class="mf"&gt;051750E3&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="n"&gt;D1422A&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="n"&gt;AE3A8A1&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;B4188AC&lt;/span&gt;
+&lt;span class="mi"&gt;346372&lt;/span&gt;&lt;span class="n"&gt;DA&lt;/span&gt; &lt;span class="mi"&gt;37&lt;/span&gt;&lt;span class="n"&gt;AA8ABA&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="n"&gt;EB30E41&lt;/span&gt; &lt;span class="mi"&gt;781&lt;/span&gt;&lt;span class="n"&gt;BC81F&lt;/span&gt;
+&lt;span class="n"&gt;B5CA66E3&lt;/span&gt; &lt;span class="n"&gt;A09DBD3A&lt;/span&gt; &lt;span class="mf"&gt;3F&lt;/span&gt;&lt;span class="n"&gt;E85BBD&lt;/span&gt; &lt;span class="mi"&gt;69893&lt;/span&gt;&lt;span class="n"&gt;DBD&lt;/span&gt;
+&lt;span class="o"&gt;------&lt;/span&gt; &lt;span class="n"&gt;END&lt;/span&gt; &lt;span class="n"&gt;LICENSE&lt;/span&gt; &lt;span class="o"&gt;------&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;另外，在我这里（archlinux|awesome)sublime text无法使用fcitx输入,网上找的sublime_imfix.c编译后无效。最终找到的解决方案（如果有兴趣点进去看吧，全英的，我只看了个大概，英文不好的我就不去描述了）：&lt;/p&gt;
+&lt;p&gt;本人进行了简单整理&lt;/p&gt;
+&lt;p&gt;首先需要安装X11 和 Gtk2的开发包，然后：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//raw.githubusercontent.com/whitequark/sublime-imethod-fix/master/libsublime_text-xim-xcompose.c&lt;/span&gt;
+&lt;span class="n"&gt;gcc&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Wall&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Werror&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fPIC&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;shared&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ldl&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;pkg&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="n"&gt;gtk&lt;/span&gt;&lt;span class="o"&gt;+-&lt;/span&gt;&lt;span class="mf"&gt;2.0&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;cflags&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;libs&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;libsublime_text&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xim&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xcompose&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;libsublime_text&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xim&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xcompose&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;此时可以得到libsublime_text-xim-xcompose.so文件，将其放置在特定目录下（目录不要有空格，我放置在了sublime目录下），设置两个环境变量。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;GTK_IM_MODULE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;xim&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;LD_PRELOAD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;SUBLIMEHOME&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;libsublime_text&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xim&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xcompose&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;$SUBLIMEHOME换成libsublime_text-xim-xcompose.so对应目录。之后再启动sublime_text就可以了。&lt;/p&gt;
+&lt;p&gt;没有写详细的步骤，linuxer应该不需要每一步都列出来。&lt;/p&gt;</summary><category term="linux"></category></entry><entry><title>firefox代理上网</title><link href="http://www.missgao.net/firefoxdai-li-shang-wang.html" rel="alternate"></link><updated>2014-09-28T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-09-28:firefoxdai-li-shang-wang.html</id><summary type="html">&lt;p&gt;上网环境不理想，无法外网。好在发现了一台内网的机器可以连接外网，这样就可以用SSH隧道来外网了，因为不在一个网段，所以用外网那台机器做网关也实现不了。就用了代理的方式。&lt;/p&gt;
+&lt;p&gt;然而准备打开网页是又出问题了，因为域名无法解析打开网页还是存在问题，可能需要把能上外网的那台机器上装dns server了，然而毕竟那个机器不在我的管理之下，借之上网已属侥幸，再加装软件就有点不合适了。&lt;/p&gt;
+&lt;p&gt;网上搜索，竟然发现了FIREFOX的network.proxy.socks_remote_dns参数，该参数将域名传递给socks5服务器去解析，遂试之，果然可行。下面需要找下thunderbird下如何设了:)&lt;/p&gt;</summary><category term="firefox"></category></entry><entry><title>我暂时的VIMRC</title><link href="http://www.missgao.net/wo-zan-shi-de-vimrc.html" rel="alternate"></link><updated>2014-09-25T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-09-25:wo-zan-shi-de-vimrc.html</id><summary type="html">&lt;p&gt;用了好长时间的LINUX，话说LINUX大神门大多用VIM编辑器，我一直在尝试，但总还不是十分习惯。偶尔用之也得设置下，下面是我现在的设置，慢慢补之吧，等我的vimrc够强悍了估计VIM水平才到家。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="s"&gt;&amp;quot; how many lines of history VIM has to remember&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;history&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;700&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;quot; Enable filetype plugins&lt;/span&gt;
+&lt;span class="n"&gt;filetype&lt;/span&gt; &lt;span class="n"&gt;plugin&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+&lt;span class="n"&gt;filetype&lt;/span&gt; &lt;span class="n"&gt;indent&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;quot; No annoying sound on errors&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;noerrorbells&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;novisualbell&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;quot; Set utf8 as standard encoding&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf8&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;quot; Turn backup off, since most stuff is in SVN, git et.c anyway...&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;nobackup&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;nowb&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;noswapfile&lt;/span&gt;
+
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;ruler&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;tabstop&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;linebreak&lt;/span&gt;
+&lt;span class="n"&gt;syn&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;showmatch&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;autoindent&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;hlsearch&lt;/span&gt;
+
+&lt;span class="cp"&gt;#auto recognition of code&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;fileencodings&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ucs&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bom&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cp936&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;gb18030&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;big5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;euc&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;jp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;euc&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;kr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;latin1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="vim"></category></entry><entry><title>LFS+BLFS</title><link href="http://www.missgao.net/lfsblfs.html" rel="alternate"></link><updated>2014-04-19T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-04-19:lfsblfs.html</id><summary type="html">&lt;p&gt;忽然心血来潮又搞了一次LFS，记得以前搞过一次，已经五六年前了，当时只把LFS搞完BLFS不知如何下手，做的过程也只是全程按手册的命令走。
+这次决定一次要把BLFS做完，搞出来一个可以达到日常应用的环境。
+使用最新的LFS7.3｜BLFS6.3，然后开始了长达一周的LFS历程。
+终于完成了，上成果图&lt;/p&gt;
+&lt;p&gt;&lt;img alt="LFS桌面" src="http://t1.qpic.cn/mblogpic/010166171d32db865a7c/2000" /&gt;&lt;/p&gt;</summary><category term="lfs"></category><category term="linux"></category></entry><entry><title>在GitHub使用jekyll建站记录</title><link href="http://www.missgao.net/zai-githubshi-yong-jekylljian-zhan-ji-lu.html" rel="alternate"></link><updated>2013-07-24T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2013-07-24:zai-githubshi-yong-jekylljian-zhan-ji-lu.html</id><summary type="html">&lt;p&gt;LINUX下的安装命令&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#aptitude install ruby ruby-dev&lt;/span&gt;
+&lt;span class="c"&gt;#gem install jekyll&lt;/span&gt;
+&lt;span class="c"&gt;#gem install rdiscount&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装rdiscount是因为默认的maruku对我写的md文档有些会报错，没心思研究为什么，换rdiscount解决了&lt;/p&gt;
+&lt;p&gt;WINDOWS install&lt;/p&gt;
+&lt;p&gt;不记得具体步骤了，网上搜一下windows jekyll会有大把的信息。记录下遇到的问题：&lt;br /&gt;
+1.使用安装版的RubyInstaller，我用ZIP版的时间发生一个莫明其妙的问题&lt;br /&gt;
+2.修改convertible.rb文件解决中文会出错，加入:encoding =&amp;gt; "utf-8".参考路径C:\Ruby\lib\ruby\gems\1.9.1\gems\jekyll-1.0.3\lib\jekyll&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;base&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;encoding&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;建个站点&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;jekyll&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;sitename&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;sitename&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;jekyll&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;现在可以在本机通过http://localhost:4000 查看效果了,&lt;/p&gt;
+&lt;p&gt;修改_config.yml，加入下面一行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;markdown&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rdiscount&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;让jettly使用rdiscount解析markdown文档&lt;/p&gt;
+&lt;p&gt;绑域名，我绑的是二级域名，按GitHub上的说明看顶域和二级域是不同的。&lt;br /&gt;
+修改域名绑定，加入一个CNAME,值填对应的[youname].github.io&lt;br /&gt;
+GitHub项目中建立CNAME文件，填上要绑的二级域名&lt;/p&gt;</summary><category term="debian"></category><category term="linux"></category><category term="jekyll"></category></entry><entry><title>Debian wheezy 64位安装32位支持</title><link href="http://www.missgao.net/debian-wheezy-64wei-an-zhuang-32wei-zhi-chi.html" rel="alternate"></link><updated>2013-04-22T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2013-04-22:debian-wheezy-64wei-an-zhuang-32wei-zhi-chi.html</id><summary type="html">&lt;p&gt;wheezy 不像前些版本直接安装ia32-libs ia32-libs-gtk就可以，因为从wheezy开始搞了个Multiarch，具体的含义不是特别清楚，主要是英文不好，不过从debian的网站上还是看明白了命令。&lt;/p&gt;
+&lt;p&gt;以下列出方法&lt;/p&gt;
+&lt;p&gt;首先加入对应架构支持&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;dpkg&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;architecture&lt;/span&gt; &lt;span class="n"&gt;i386&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后在源中加入对应架构，像我使用的163的源&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="sx"&gt;[arch=amd64,i386]&lt;/span&gt; &lt;span class="kp"&gt;http://mirrors.163.com/debian/&lt;/span&gt; &lt;span class="kp"&gt;wheezy&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;再更新下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;aptitude&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后就可以安装ia32-libs了&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;aptitude&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ia32&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;libs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在安装时可以看到一些包的后面多出了:i386字样&lt;/p&gt;</summary><category term="debian"></category><category term="linux"></category></entry><entry><title>64位debian使用firefox</title><link href="http://www.missgao.net/64wei-debianshi-yong-firefox.html" rel="alternate"></link><updated>2013-02-21T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2013-02-21:64wei-debianshi-yong-firefox.html</id><summary type="html">&lt;p&gt;主要解决相应wrong ELF class: ELFCLASS64错及插件异常&lt;/p&gt;
+&lt;p&gt;不多描述，直接放方法：&lt;/p&gt;
+&lt;p&gt;首先要有安装ia32-libs、lib32-libs-gtk，因为firefox只有32位的，但好像他默认是去读32位下对应的so文件，虽然我们装了32位Lib它也不去找。&lt;/p&gt;
+&lt;p&gt;说明下我的情况：我直接在mozilla上下载的firefox，然后放在了/usr/local下，这时启动firefox是要用完整路径才可以。&lt;/p&gt;
+&lt;p&gt;方法：创建/usr/local/bin/firefox，内容如下&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash -e&lt;/span&gt;
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib32:&lt;span class="nv"&gt;$LD_LIBRARY_PATH&lt;/span&gt;
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GTK_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib32/gtk-2.0
+/usr/local/firefox/firefox &lt;span class="s2"&gt;&amp;quot;$@&amp;quot;&lt;/span&gt; 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null &amp;amp;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;具体原因不再解释，懂的自然懂，不懂的解决问题即可&lt;/p&gt;
+&lt;p&gt;下面描述下flash插件问题：&lt;/p&gt;
+&lt;p&gt;我测试的情况如下，在adobe网站下载linux的64不可用。我纠结了一两天，后来下载了32位的竟然可以了。当然上面的步骤需要先做一下，上面的步骤如果没有进行也是可以启动firefox的，我是在处理支付宝密码输入控件时想到的，当时支付宝默认给我装的是64控件，结果也有报ELFCLASS64错，然后我将支付宝的控件也换做32的竟然可以了。&lt;/p&gt;
+&lt;p&gt;附：支付宝的控件默认会根据你的系统环境会安装控件，所以装的是64的，想装32的只需做一个简单的改动：得到对应安装文件先不要执行，而修改下，将里边删除\~/.aliedit语句删除，然后前往\~/.aliedit/install/lib下看，会看到一个64一个32的lib，对应复制到\~/.mozilla/plugins下即可&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;补充说明——LINUX下可以直接用64位的FIREFOX，到下面这里找所需要的版本吧：ftp://ftp.mozilla.org/pub/firefox/releases/latest/linux-x86_64/&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="debian"></category><category term="firefox"></category><category term="linux"></category></entry><entry><title>硬盘安装DEBIAN SQUEEZE 64BIT备忘</title><link href="http://www.missgao.net/ying-pan-an-zhuang-debian-squeeze-64bitbei-wang.html" rel="alternate"></link><updated>2013-02-19T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2013-02-19:ying-pan-an-zhuang-debian-squeeze-64bitbei-wang.html</id><summary type="html">&lt;p&gt;这不是一个安装手册，只是自己安装的一些重点项目记录   &lt;/p&gt;
+&lt;p&gt;安装前的情况&lt;br /&gt;
+ 软件：WIN7旗舰版-64bit EN + BT5双系统&lt;br /&gt;
+ 硬件：LENOVO E46A  &lt;/p&gt;
+&lt;p&gt;规划安装后情况：&lt;br /&gt;
+ WIN7 64+DEBIAN 64，去除BT5.&lt;br /&gt;
+ BT5下/home分区保留，安装完后修改debian的fstab再将/home挂载  &lt;/p&gt;
+&lt;p&gt;所有常用软件放/usr/local,并将/home/local单独分区，防止再重装&lt;br /&gt;
+ 1.下载DEBIAN 6.0 amd64,放在FAT32或LINUX格式分区下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//cdimage.debian.org/debian-cd/6.0.6/amd64/iso-dvd/debian-6.0.6-amd64-DVD-1.iso&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2.下载GRUB4DOS所用引导文件，3个全下，放任一位置，建议放C盘根下――boot.img.gz不知做什么用的&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//ftp.nl.debian.org/debian/dists/squeeze/main/installer-amd64/current/images/hd-media/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3.GRUB4DOS按C命令行,如果引导文件未放在C盘根下或安装有多块硬盘则需要改变(hd0,0)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;kernel&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hd0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vmlinuz&lt;/span&gt;
+&lt;span class="n"&gt;initrd&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hd0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;initrd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gz&lt;/span&gt;
+&lt;span class="n"&gt;boot&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;4.引导不安装在/dev/sda上，而装在/dev/sdaX上，因为目前还是在WINDOWS上工作的多些，还是用WIN7的引导&lt;br /&gt;
+ 5.安装只安装标准系统，其它的装好再说。   &lt;/p&gt;
+&lt;p&gt;到这里已经装完了  &lt;/p&gt;
+&lt;p&gt;6.下载安装nonfree的网卡驱动firmware-iwlwifi_0.28+squeeze1_all.deb，我以前装32位DEBIAN时就下过了，这个包不分32位和&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;dpkg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;firmware&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;iwlwifi_0&lt;/span&gt;&lt;span class="mf"&gt;.28&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;squeeze1_all&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;7.添加ISO源,ROOT运行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;mkdir&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;mnt&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt;
+&lt;span class="nx"&gt;mount&lt;/span&gt; &lt;span class="na"&gt;-o&lt;/span&gt; &lt;span class="k"&gt;loop&lt;/span&gt; &lt;span class="o"&gt;/&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;ISOFILEPATH&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;/&lt;/span&gt;&lt;span class="nx"&gt;debian&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;6.0.6&lt;/span&gt;&lt;span class="na"&gt;-amd64-DVD&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="bp"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;iso&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;mnt&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt;
+&lt;span class="nx"&gt;echo&lt;/span&gt; &lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;///mnt/source squeeze main contrib &amp;gt; /etc/apt/source.list.d/ISO.list&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;8.安装一些软件，然后把ntfs3g装上（代码不写了）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;aptitude&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
+&lt;span class="n"&gt;aptitude&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="n"&gt;gcc&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;ia32&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;libs&lt;/span&gt; &lt;span class="n"&gt;ia32&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;libs&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;gtk&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;9.安装图形&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;aptitude&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;xfce4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;10.连接WPA2无线:家里的无线ESSID是隐藏的&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;aptitude&lt;/span&gt; &lt;span class="nb"&gt;install&lt;/span&gt; &lt;span class="nx"&gt;wireless&lt;/span&gt;&lt;span class="na"&gt;-tools&lt;/span&gt; &lt;span class="nx"&gt;wpasupplicant&lt;/span&gt;
+&lt;span class="nx"&gt;wpa_passparse&lt;/span&gt; &lt;span class="nx"&gt;ESSID&lt;/span&gt; &lt;span class="nx"&gt;PWD&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;file&lt;/span&gt;
+&lt;span class="nx"&gt;ifconfig&lt;/span&gt; &lt;span class="nx"&gt;wlan0&lt;/span&gt; &lt;span class="nb"&gt;up&lt;/span&gt;
+&lt;span class="nx"&gt;iwconfig&lt;/span&gt; &lt;span class="nx"&gt;wlan0&lt;/span&gt; &lt;span class="nx"&gt;essid&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;ESSID&amp;gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nx"&gt;wpa_supplicant&lt;/span&gt; &lt;span class="na"&gt;-Dwext&lt;/span&gt; &lt;span class="na"&gt;-iwlan0&lt;/span&gt; &lt;span class="na"&gt;-c&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;dev&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;null&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;
+&lt;span class="nx"&gt;dhclient&lt;/span&gt; &lt;span class="nx"&gt;wlan0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最后4句我做成了一个sh文件，以后就可以直接运行了&lt;/p&gt;
+&lt;p&gt;11.添加163源&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;deb&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//mirrors.163.com/debian squeeze main contrib &amp;gt; /etc/apt/source.list.d/163.list&lt;/span&gt;
+&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;deb&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//mirrors.163.com/debian-backports squeeze-backports main contrib &amp;gt;&amp;gt; /etc/apt/source.list.d/163.list&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;第二行是为了装fcitx用，我平时只有基本的办公用，所以no-free没有加，万一有需要再加好了  &lt;/p&gt;
+&lt;p&gt;12.安装WQY字体&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;aptitude&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;xfont&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wqy&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;13.安装设置FCITX&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;aptitude&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;fcitx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wubi&lt;/span&gt; &lt;span class="n"&gt;fcitx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wbpy&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;我基本只用五笔，因为会自动依赖，所以就没把fcitx放进去&lt;br /&gt;
+创建~/.xinitrc——将export那行加入.profile也可以,内容为&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;LC_CTYPE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;zh_CN.utf8 &amp;gt;&amp;gt; ~/.profile
+
+. /etc/X11/Xsession
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;我的locale是英文(自己EN太差，用这个方法强制学习了)，所以上面这一行一定要加，不然无法使用fcitx&lt;/p&gt;
+&lt;p&gt;14.安装OFFICE  &lt;/p&gt;
+&lt;p&gt;赶上WPS for Linux出beta版了，就赶快下来用,下载.tar.gz包，因为WPS只有32位，所以还需要做一些操作：   &lt;/p&gt;
+&lt;p&gt;下载最新的libstdc++6:http://packages.debian.org/wheezy/i386/libstdc++6/download&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ar&lt;/span&gt; &lt;span class="n"&gt;vx&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="err"&gt;下载的&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;&lt;span class="err"&gt;文件&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;tar&lt;/span&gt; &lt;span class="n"&gt;xvf&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gz&lt;/span&gt;
+&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;i386&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;linux&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;gnu&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;libstdc&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;&lt;span class="mf"&gt;.6.0.17&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;WPS&lt;/span&gt;&lt;span class="err"&gt;解包路径&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;/&lt;/span&gt;&lt;span class="n"&gt;office6&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;libstdc&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;&lt;span class="mf"&gt;.6&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;挂载WINDOWS的C盘，然后将面下的字体复制到\~/.fonts下  &lt;/p&gt;
+&lt;p&gt;MTEXTRA.TTF  simhei.ttf  simsun.ttc  webdings.ttf  WINGDNG2.TTF&lt;br /&gt;
+ simfang.ttf  simkai.ttf  symbol.ttf  wingding.ttf  WINGDNG3.TTF&lt;/p&gt;
+&lt;p&gt;先到这里了，附上一张近照。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="桌面" src="http://c.hiphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=a58802b2d833c895a27e987ee12802cd/43a7d933c895d14307e7910672f082025aaf0705.jpg?referer=e0416e668ad4b31ca92ba18b611c&amp;amp;x=.jpg" /&gt;&lt;/p&gt;</summary><category term="debian"></category><category term="linux"></category></entry></feed>
