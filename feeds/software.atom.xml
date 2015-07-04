@@ -6,7 +6,7 @@
 
 &lt;p&gt;可以看到，注册码被用逗号分成了四个部分：&lt;/p&gt;
 &lt;p&gt;第一部分是注册类型，EX0是免费给的试用类型，我不知道EX1、EX2是什么情况，但试了下，EX1是可以用的&lt;/p&gt;
-&lt;p&gt;第二部分是邮件，&lt;em&gt;@&lt;/em&gt;是免费给的60天试用的，这里要填有效的Exchange邮箱，可以在选项里Valid Emails里看到&lt;/p&gt;
+&lt;p&gt;第二部分是邮件，*@*是免费给的60天试用的，这里要填有效的Exchange邮箱，可以在选项里Valid Emails里看到&lt;/p&gt;
 &lt;p&gt;第三部分是license过期日期。&lt;/p&gt;
 &lt;p&gt;第四部分是校验码，分别是前三个部分再加上356B4B5C算出来的MD5值。&lt;/p&gt;
 &lt;p&gt;例如，注册类型EX1、Exchange邮箱abc@missgao.com，到期日期2015-12-18，可以计算出MD5值为：&lt;/p&gt;
