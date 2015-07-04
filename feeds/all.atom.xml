@@ -17,10 +17,10 @@
 
 &lt;p&gt;用计算出的MD5值作为注册码的最后一部分即可注册成功。&lt;/p&gt;</summary><category term="thunderbird"></category></entry><entry><title>awesome音量实现</title><link href="http://www.missgao.net/awesomeyin-liang-shi-xian.html" rel="alternate"></link><updated>2014-10-29T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-10-29:awesomeyin-liang-shi-xian.html</id><summary type="html">&lt;p&gt;&lt;img alt="awesome Volume" src="http://imglf0.ph.126.net/xR2Xw3WHhbGZ1sV5t_oVlA==/3830030008201934964.png" /&gt;
 自己实现了awesome的音量。没有使用网上的方法（大多是使用vicious，看了下它的代码，感觉不太合适），自己对着官方说明看了看，简单实现如图所示。&lt;/p&gt;
-&lt;p&gt;1.上面显示音量图标，目前是静音，如果不是静音则显示正常声音图标。
-2.指向声音图标显示当前音量框，即使静音也显示，因为切换至非静音时就是这个音量；移出声音图标音量框消失。
-3.使用静音键切换静音非静音，同时音量图标变化
-4.使用声音增大缩小键显示音量框&lt;/p&gt;
+&lt;p&gt;1.上面显示音量图标，目前是静音，如果不是静音则显示正常声音图标。&lt;/p&gt;
+&lt;p&gt;2.指向声音图标显示当前音量框，即使静音也显示，因为切换至非静音时就是这个音量；移出声音图标音量框消失。&lt;/p&gt;
+&lt;p&gt;3.使用静音键切换静音非静音，同时音量图标变化&lt;/p&gt;
+&lt;p&gt;4.使用声音增大缩小键显示音量框&lt;/p&gt;
 &lt;p&gt;下一步再做个电量显示，这样右上角的信息显示查不多了（内存、CPU之类的监控不想放那里，感觉占地儿），终级的把时间显示那边转成日历方式，并加上事件提醒（使用cal命令结果，不知是否能实现）&lt;/p&gt;</summary><category term="vim"></category></entry><entry><title>Y2K38问题</title><link href="http://www.missgao.net/y2k38wen-ti.html" rel="alternate"></link><updated>2014-10-23T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-10-23:y2k38wen-ti.html</id><summary type="html">&lt;p&gt;今天习惯性pacman -Syu.发现linux kernel出3.17了。&lt;/p&gt;
 &lt;p&gt;网上查了下3.17的新特性，发现有一项是解决2038年问题，以前只知2000年问题，于是查了一下，原来如此：
 在计算机应用上，2038年问题可能会导致某些软件在2038年无法正常工作。所有使用UNIX时间表示时间的程序都将受其影响，因为它们以自1970年1月1日经过的秒数（忽略闰秒）来表示时间。这种时间表示法在类Unix（Unix-like）操作系统上是一个标准，并会影响以其C编程语言开发给其他大部份操作系统使用的软件。在大部份的32位操作系统上，此“time_t”数据模式使用一个有正负号的32位元整数(signedint32)存储计算的秒数。依照此“time_t”标准，在此格式能被表示的最后时间是2038年1月19日03:14:07，星期二（UTC）。超过此一瞬间，时间将会被掩盖（wrap around）且在内部被表示为一个负数，并造成程序无法工作，因为它们无法将此时间识别为2038年，而可能会依个别实作而跳回1970年或1901年。错误的计算及动作可能因此产生。&lt;/p&gt;</summary><category term="linux"></category></entry><entry><title>linux连接中文无线</title><link href="http://www.missgao.net/linuxlian-jie-zhong-wen-wu-xian.html" rel="alternate"></link><updated>2014-10-16T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-10-16:linuxlian-jie-zhong-wen-wu-xian.html</id><summary type="html">&lt;p&gt;在客户的办公室连接内网，可这边的无线名称为中文，我试了下直接将对应中文写入配置文件（使用的netctl连接），结果不行。&lt;/p&gt;
