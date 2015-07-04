@@ -55,7 +55,7 @@
 						<li><a href="http://www.missgao.net">Home</a></li>
 						<li><label>Categories</label></li>
 							<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
-							<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
+							<li class="active"><a href="http://www.missgao.net/category/software.html">software</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="#">You can modify those links in your config file</a></li>
@@ -63,12 +63,8 @@
 
 						<li><label>Monthly Archives</label></li>
 									<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-									<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
+									<li><a href="/posts/2014/10/index.html">October 2014 (1)</a></li>
 									<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-									<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
-									<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-									<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-									<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
 
 						<li><label>Social</label></li>
 							<li><a href="#">Another social link</a></li>
@@ -87,7 +83,7 @@
 					<section class="top-bar-section">
 						<ul class="left">
 								<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
-								<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
+								<li class="active"><a href="http://www.missgao.net/category/software.html">software</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -100,6 +96,11 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>Category: software</h2>
+								</div>
+							</div>
 
 <article>
 	<h3><a href="http://www.missgao.net/exquilla-po-jie.html">exquilla 破解</a></h3>
@@ -135,38 +136,6 @@
 4.使用声音增大缩小键显示音量框</p>
 <p>下一步再做个电量显示，这样右上角的信息显示查不多了（内存、CPU之类的监控不想放那里，感觉占地儿），终级的把时间显示那边转成日历方式，并加上事件提醒（使用cal命令结果，不知是否能实现）</p>
 		<p class="continue"><a href="http://www.missgao.net/awesomeyin-liang-shi-xian.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="http://www.missgao.net/y2k38wen-ti.html">Y2K38问题</a></h3>
-	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Thu 23 October 2014. Tags: <a href="http://www.missgao.net/tag/linux.html">linux</a>, </h6>
-	<p>今天习惯性pacman -Syu.发现linux kernel出3.17了。</p>
-<p>网上查了下3.17的新特性，发现有一项是解决2038年问题，以前只知2000年问题，于是查了一下，原来如此：
-在计算机应用上，2038年问题可能会导致某些软件在2038年无法正常工作。所有使用UNIX时间表示时间的程序都将受其影响，因为它们以自1970年1月1日经过的秒数（忽略闰秒）来表示时间。这种时间表示法在类Unix（Unix-like）操作系统上是一个标准，并会影响以其C编程语言开发给其他大部份操作系统使用的软件。在大部份的32位操作系统上，此“time_t”数据模式使用一个有正负号的32位元整数(signedint32)存储计算的秒数。依照此“time_t”标准，在此格式能被表示的最后时间是2038年1月19日03:14:07，星期二（UTC）。超过此一瞬间，时间将会被掩盖（wrap around）且在内部被表示为一个负数，并造成程序无法工作，因为它们无法将此时间识别为2038年，而可能会依个别实作而跳回1970年或1901年。错误的计算及动作可能因此产生。</p>
-		<p class="continue"><a href="http://www.missgao.net/y2k38wen-ti.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="http://www.missgao.net/linuxlian-jie-zhong-wen-wu-xian.html">linux连接中文无线</a></h3>
-	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Thu 16 October 2014. Tags: <a href="http://www.missgao.net/tag/linux.html">linux</a>, <a href="http://www.missgao.net/tag/wifi.html">wifi</a>, </h6>
-	<p>在客户的办公室连接内网，可这边的无线名称为中文，我试了下直接将对应中文写入配置文件（使用的netctl连接），结果不行。</p>
-<p>又使用iw 的scan命令查询，得到的对应SSID是以\x开始的16进制串，将对应的一串16进制设置进去报SSID太长，又是不行。</p>
-<p>结果只有先用WINDOWS来连。网上查来查去，也没有找到相应的解决方案。</p>
-<p>后来自己仔细想了下，问题应该出在编码上，我的locale设置的utf-8。中文无线名称的编码应该就是GB2312。后来就在编码上测试了很久，最终发现原来是很简单一件事：</p>
-<p>我还是先建立了一个配置文件，SSID处正常填入中文。此时该文件为UTF8编码，再使用iconv进行编码转换(utf8 -&gt; gb2312)，得到一个新的文件，使用此配置文件连接就直接成功了。如果不是使用netctl而是使用wpa_supplicant命令直接连接，那么将wpa_supplicant的配置文件存成或转换gb2312编码即可。</p>
-		<p class="continue"><a href="http://www.missgao.net/linuxlian-jie-zhong-wen-wu-xian.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="http://www.missgao.net/shellzhong-de-forxun-huan-yi-wen.html">shell中的for循环疑问</a></h3>
-	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Thu 09 October 2014. Tags: <a href="http://www.missgao.net/tag/linux.html">linux</a>, <a href="http://www.missgao.net/tag/shell.html">shell</a>, </h6>
-	<p>如下，循环时使用s*和<code>ls s*</code>还是有不同的，具体的原因有时间得慢慢研究（自己掌握的基础知识还是不扎实）。先记录下以备后面研究。</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">touch</span> <span class="n">ss</span><span class="err">\</span> <span class="n">s1</span>
-<span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="n">s</span><span class="o">*</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span> <span class="mi">835826</span> <span class="n">Sep</span> <span class="mi">28</span> <span class="mi">22</span><span class="o">:</span><span class="mo">03</span> <span class="n">search</span><span class="p">.</span><span class="n">tgz</span>
-<span class="o">-</span><span class="n">rwxr</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span>    <span class="mi">472</span> <span class="n">Sep</span> <span class="mi">23</span> <span class="mi">16</span><span class="o">:</span><span class="mi">51</span> <span class="n">ssh</span><span class="o">-</span><span class="n">expect</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users ...</span></pre></div>
-		<p class="continue"><a href="http://www.missgao.net/shellzhong-de-forxun-huan-yi-wen.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
 <article>
@@ -225,49 +194,7 @@
 		<p class="continue"><a href="http://www.missgao.net/wo-zan-shi-de-vimrc.html">Continue reading &raquo;</a></p>
 </article>
 <hr />
-<article>
-	<h3><a href="http://www.missgao.net/lfsblfs.html">LFS+BLFS</a></h3>
-	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Sat 19 April 2014. Tags: <a href="http://www.missgao.net/tag/lfs.html">lfs</a>, <a href="http://www.missgao.net/tag/linux.html">linux</a>, </h6>
-	<p>忽然心血来潮又搞了一次LFS，记得以前搞过一次，已经五六年前了，当时只把LFS搞完BLFS不知如何下手，做的过程也只是全程按手册的命令走。
-这次决定一次要把BLFS做完，搞出来一个可以达到日常应用的环境。
-使用最新的LFS7.3｜BLFS6.3，然后开始了长达一周的LFS历程。
-终于完成了，上成果图</p>
-<p><img alt="LFS桌面" src="http://t1.qpic.cn/mblogpic/010166171d32db865a7c/2000" /></p>
-		<p class="continue"><a href="http://www.missgao.net/lfsblfs.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-<article>
-	<h3><a href="http://www.missgao.net/zai-githubshi-yong-jekylljian-zhan-ji-lu.html">在GitHub使用jekyll建站记录</a></h3>
-	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Wed 24 July 2013. Tags: <a href="http://www.missgao.net/tag/debian.html">debian</a>, <a href="http://www.missgao.net/tag/linux.html">linux</a>, <a href="http://www.missgao.net/tag/jekyll.html">jekyll</a>, </h6>
-	<p>LINUX下的安装命令</p>
-<div class="highlight"><pre><span class="c">#aptitude install ruby ruby-dev</span>
-<span class="c">#gem install jekyll</span>
-<span class="c">#gem install rdiscount</span>
-</pre></div>
 
-
-<p>安装rdiscount是因为默认的maruku对我写的md文档有些会报错，没心思研究为什么，换rdiscount解决了</p>
-<p>WINDOWS install</p>
-<p>不记得具体步骤了，网上搜一下windows jekyll会有大把的信息。记录下遇到的问题：<br />
-1.使用安装版的RubyInstaller，我用ZIP版的时间发生一个莫明其妙的问题<br />
-2.修改convertible.rb文件解决中文会出错，加入:encoding =&gt; "utf-8".参考路径C:\Ruby\lib\ruby\gems\1.9.1\gems\jekyll-1.0.3\lib\jekyll</p>
-<div class="highlight"><pre><span class="n">self</span><span class="p">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">File</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">base ...</span></pre></div>
-		<p class="continue"><a href="http://www.missgao.net/zai-githubshi-yong-jekylljian-zhan-ji-lu.html">Continue reading &raquo;</a></p>
-</article>
-<hr />
-
-<div class="row" style="margin-bottom: -1.25em;">
-	<div class="small-12 columns text-center">
-		<div class="pagination-centered">
-			<ul class="pagination">
-				<li class="arrow unavailable"><a href="#">&larr; Previous</a></li>
-				<li class="current"><a href="http://www.missgao.net/index.html">1</a></li>
-				<li class=""><a href="http://www.missgao.net/index2.html">2</a></li>
-				<li class="arrow"><a href="http://www.missgao.net/index2.html">Next &rarr;</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
 
 						</div>
 						<!-- End Main Content -->
@@ -290,12 +217,8 @@
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
 											<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-											<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
+											<li><a href="/posts/2014/10/index.html">October 2014 (1)</a></li>
 											<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-											<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
-											<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-											<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-											<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
 								</ul>
 							</div>
 

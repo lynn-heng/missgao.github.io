@@ -54,7 +54,7 @@
 					<ul class="off-canvas-list">
 						<li><a href="http://www.missgao.net">Home</a></li>
 						<li><label>Categories</label></li>
-							<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
+							<li class="active"><a href="http://www.missgao.net/category/linux.html">linux</a></li>
 							<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
 
 						<li><label>Links</label></li>
@@ -86,7 +86,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
-								<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
+								<li class="active"><a href="http://www.missgao.net/category/linux.html">linux</a></li>
 								<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -100,10 +100,48 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
+<article>
+	<h2>shell中的for循环疑问</h2>
+	<p>如下，循环时使用s*和<code>ls s*</code>还是有不同的，具体的原因有时间得慢慢研究（自己掌握的基础知识还是不扎实）。先记录下以备后面研究。</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">touch</span> <span class="n">ss</span><span class="err">\</span> <span class="n">s1</span>
+<span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="n">s</span><span class="o">*</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span> <span class="mi">835826</span> <span class="n">Sep</span> <span class="mi">28</span> <span class="mi">22</span><span class="o">:</span><span class="mo">03</span> <span class="n">search</span><span class="p">.</span><span class="n">tgz</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span>    <span class="mi">472</span> <span class="n">Sep</span> <span class="mi">23</span> <span class="mi">16</span><span class="o">:</span><span class="mi">51</span> <span class="n">ssh</span><span class="o">-</span><span class="n">expect</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span>    <span class="mi">506</span> <span class="n">Sep</span> <span class="mi">28</span> <span class="mi">15</span><span class="o">:</span><span class="mo">00</span> <span class="n">ssh</span><span class="o">-</span><span class="n">passwd</span><span class="p">.</span><span class="n">conf</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">victor</span> <span class="n">users</span>      <span class="mi">0</span> <span class="n">Oct</span>  <span class="mi">9</span> <span class="mi">21</span><span class="o">:</span><span class="mi">53</span> <span class="n">ss</span> <span class="n">s1</span>
+<span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="k">for</span> <span class="n">file</span> <span class="n">in</span> <span class="n">s</span><span class="o">*</span><span class="p">;</span><span class="k">do</span> <span class="n">echo</span> <span class="err">$</span><span class="n">file</span><span class="p">;</span><span class="n">done</span>
+<span class="n">search</span><span class="p">.</span><span class="n">tgz</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">expect</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">passwd</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">ss</span> <span class="n">s1</span>
+<span class="p">[</span><span class="n">victor</span><span class="err">@</span><span class="n">MISSGAO</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="k">for</span> <span class="n">file</span> <span class="n">in</span> <span class="err">`</span><span class="n">ls</span> <span class="n">s</span><span class="o">*</span><span class="err">`</span><span class="p">;</span><span class="k">do</span> <span class="n">echo</span> <span class="err">$</span><span class="n">file</span><span class="p">;</span><span class="n">done</span>
+<span class="n">search</span><span class="p">.</span><span class="n">tgz</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">expect</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">passwd</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">ss</span>
+<span class="n">s1</span>
+</pre></div>
+	<hr/>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Thu 09 October 2014. Tags: <a href="http://www.missgao.net/tag/linux.html">linux</a>, <a href="http://www.missgao.net/tag/shell.html">shell</a>, </h6>
+</article>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'heng';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->

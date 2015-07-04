@@ -62,13 +62,7 @@
 
 
 						<li><label>Monthly Archives</label></li>
-									<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-									<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
-									<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-									<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
 									<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-									<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-									<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
 
 						<li><label>Social</label></li>
 							<li><a href="#">Another social link</a></li>
@@ -100,10 +94,33 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>Posts Tagged With 'jekyll'</h2>
+								</div>
+							</div>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+<article>
+	<h3><a href="http://www.missgao.net/zai-githubshi-yong-jekylljian-zhan-ji-lu.html">在GitHub使用jekyll建站记录</a></h3>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Wed 24 July 2013. Tags: <a href="http://www.missgao.net/tag/debian.html">debian</a>, <a href="http://www.missgao.net/tag/linux.html">linux</a>, <a href="http://www.missgao.net/tag/jekyll.html">jekyll</a>, </h6>
+	<p>LINUX下的安装命令</p>
+<div class="highlight"><pre><span class="c">#aptitude install ruby ruby-dev</span>
+<span class="c">#gem install jekyll</span>
+<span class="c">#gem install rdiscount</span>
+</pre></div>
+
+
+<p>安装rdiscount是因为默认的maruku对我写的md文档有些会报错，没心思研究为什么，换rdiscount解决了</p>
+<p>WINDOWS install</p>
+<p>不记得具体步骤了，网上搜一下windows jekyll会有大把的信息。记录下遇到的问题：<br />
+1.使用安装版的RubyInstaller，我用ZIP版的时间发生一个莫明其妙的问题<br />
+2.修改convertible.rb文件解决中文会出错，加入:encoding =&gt; "utf-8".参考路径C:\Ruby\lib\ruby\gems\1.9.1\gems\jekyll-1.0.3\lib\jekyll</p>
+<div class="highlight"><pre><span class="n">self</span><span class="p">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">File</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">base ...</span></pre></div>
+		<p class="continue"><a href="http://www.missgao.net/zai-githubshi-yong-jekylljian-zhan-ji-lu.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->
@@ -124,13 +141,7 @@
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
-											<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-											<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
-											<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-											<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
 											<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-											<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-											<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
 								</ul>
 							</div>
 

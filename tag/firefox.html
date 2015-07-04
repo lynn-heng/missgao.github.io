@@ -62,13 +62,8 @@
 
 
 						<li><label>Monthly Archives</label></li>
-									<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-									<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
-									<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-									<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
-									<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-									<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-									<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
+									<li><a href="/posts/2014/09/index.html">September 2014 (1)</a></li>
+									<li><a href="/posts/2013/02/index.html">February 2013 (1)</a></li>
 
 						<li><label>Social</label></li>
 							<li><a href="#">Another social link</a></li>
@@ -100,10 +95,41 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>Posts Tagged With 'firefox'</h2>
+								</div>
+							</div>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+<article>
+	<h3><a href="http://www.missgao.net/firefoxdai-li-shang-wang.html">firefox代理上网</a></h3>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/software.html">software</a> on Sun 28 September 2014. Tags: <a href="http://www.missgao.net/tag/firefox.html">firefox</a>, </h6>
+	<p>上网环境不理想，无法外网。好在发现了一台内网的机器可以连接外网，这样就可以用SSH隧道来外网了，因为不在一个网段，所以用外网那台机器做网关也实现不了。就用了代理的方式。</p>
+<p>然而准备打开网页是又出问题了，因为域名无法解析打开网页还是存在问题，可能需要把能上外网的那台机器上装dns server了，然而毕竟那个机器不在我的管理之下，借之上网已属侥幸，再加装软件就有点不合适了。</p>
+<p>网上搜索，竟然发现了FIREFOX的network.proxy.socks_remote_dns参数，该参数将域名传递给socks5服务器去解析，遂试之，果然可行。下面需要找下thunderbird下如何设了:)</p>
+		<p class="continue"><a href="http://www.missgao.net/firefoxdai-li-shang-wang.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="http://www.missgao.net/64wei-debianshi-yong-firefox.html">64位debian使用firefox</a></h3>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Thu 21 February 2013. Tags: <a href="http://www.missgao.net/tag/debian.html">debian</a>, <a href="http://www.missgao.net/tag/firefox.html">firefox</a>, <a href="http://www.missgao.net/tag/linux.html">linux</a>, </h6>
+	<p>主要解决相应wrong ELF class: ELFCLASS64错及插件异常</p>
+<p>不多描述，直接放方法：</p>
+<p>首先要有安装ia32-libs、lib32-libs-gtk，因为firefox只有32位的，但好像他默认是去读32位下对应的so文件，虽然我们装了32位Lib它也不去找。</p>
+<p>说明下我的情况：我直接在mozilla上下载的firefox，然后放在了/usr/local下，这时启动firefox是要用完整路径才可以。</p>
+<p>方法：创建/usr/local/bin/firefox，内容如下</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash -e</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib32:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export </span><span class="nv">GTK_PATH</span><span class="o">=</span>/usr/lib32/gtk-2.0
+/usr/local/firefox/firefox <span class="s2">&quot;$@&quot;</span> 2&gt;&amp;1 &gt; /dev/null ...</pre></div></td></tr></table>
+		<p class="continue"><a href="http://www.missgao.net/64wei-debianshi-yong-firefox.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->
@@ -124,13 +150,8 @@
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
-											<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-											<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
-											<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-											<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
-											<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-											<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-											<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
+											<li><a href="/posts/2014/09/index.html">September 2014 (1)</a></li>
+											<li><a href="/posts/2013/02/index.html">February 2013 (1)</a></li>
 								</ul>
 							</div>
 

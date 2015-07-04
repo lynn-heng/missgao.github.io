@@ -55,7 +55,7 @@
 						<li><a href="http://www.missgao.net">Home</a></li>
 						<li><label>Categories</label></li>
 							<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
-							<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
+							<li class="active"><a href="http://www.missgao.net/category/software.html">software</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="#">You can modify those links in your config file</a></li>
@@ -87,7 +87,7 @@
 					<section class="top-bar-section">
 						<ul class="left">
 								<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
-								<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
+								<li class="active"><a href="http://www.missgao.net/category/software.html">software</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -100,10 +100,32 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
+<article>
+	<h2>firefox代理上网</h2>
+	<p>上网环境不理想，无法外网。好在发现了一台内网的机器可以连接外网，这样就可以用SSH隧道来外网了，因为不在一个网段，所以用外网那台机器做网关也实现不了。就用了代理的方式。</p>
+<p>然而准备打开网页是又出问题了，因为域名无法解析打开网页还是存在问题，可能需要把能上外网的那台机器上装dns server了，然而毕竟那个机器不在我的管理之下，借之上网已属侥幸，再加装软件就有点不合适了。</p>
+<p>网上搜索，竟然发现了FIREFOX的network.proxy.socks_remote_dns参数，该参数将域名传递给socks5服务器去解析，遂试之，果然可行。下面需要找下thunderbird下如何设了:)</p>
+	<hr/>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/software.html">software</a> on Sun 28 September 2014. Tags: <a href="http://www.missgao.net/tag/firefox.html">firefox</a>, </h6>
+</article>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'heng';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->

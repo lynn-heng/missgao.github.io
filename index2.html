@@ -100,10 +100,88 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+<article>
+	<h3><a href="http://www.missgao.net/debian-wheezy-64wei-an-zhuang-32wei-zhi-chi.html">Debian wheezy 64位安装32位支持</a></h3>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Mon 22 April 2013. Tags: <a href="http://www.missgao.net/tag/debian.html">debian</a>, <a href="http://www.missgao.net/tag/linux.html">linux</a>, </h6>
+	<p>wheezy 不像前些版本直接安装ia32-libs ia32-libs-gtk就可以，因为从wheezy开始搞了个Multiarch，具体的含义不是特别清楚，主要是英文不好，不过从debian的网站上还是看明白了命令。</p>
+<p>以下列出方法</p>
+<p>首先加入对应架构支持</p>
+<div class="highlight"><pre><span class="n">dpkg</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">architecture</span> <span class="n">i386</span>
+</pre></div>
+
+
+<p>然后在源中加入对应架构，像我使用的163的源</p>
+<div class="highlight"><pre><span class="k">deb</span> <span class="sx">[arch=amd64,i386]</span> <span class="kp">http://mirrors.163.com/debian/</span> <span class="kp">wheezy</span> <span class="kp">main</span>
+</pre></div>
+
+
+<p>再更新下</p>
+<div class="highlight"><pre><span class="n">aptitude</span> <span class="n">update</span>
+</pre></div>
+
+
+<p>然后就可以安装ia32-libs了</p>
+<div class="highlight"><pre><span class="n">aptitude</span> <span class="n">install</span> <span class="n">ia32</span><span class="o">-</span><span class="n">libs</span>
+</pre></div>
+
+
+<p>在安装时可以看到一些包的后面多出了:i386字样</p>
+		<p class="continue"><a href="http://www.missgao.net/debian-wheezy-64wei-an-zhuang-32wei-zhi-chi.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="http://www.missgao.net/64wei-debianshi-yong-firefox.html">64位debian使用firefox</a></h3>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Thu 21 February 2013. Tags: <a href="http://www.missgao.net/tag/debian.html">debian</a>, <a href="http://www.missgao.net/tag/firefox.html">firefox</a>, <a href="http://www.missgao.net/tag/linux.html">linux</a>, </h6>
+	<p>主要解决相应wrong ELF class: ELFCLASS64错及插件异常</p>
+<p>不多描述，直接放方法：</p>
+<p>首先要有安装ia32-libs、lib32-libs-gtk，因为firefox只有32位的，但好像他默认是去读32位下对应的so文件，虽然我们装了32位Lib它也不去找。</p>
+<p>说明下我的情况：我直接在mozilla上下载的firefox，然后放在了/usr/local下，这时启动firefox是要用完整路径才可以。</p>
+<p>方法：创建/usr/local/bin/firefox，内容如下</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash -e</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib32:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export </span><span class="nv">GTK_PATH</span><span class="o">=</span>/usr/lib32/gtk-2.0
+/usr/local/firefox/firefox <span class="s2">&quot;$@&quot;</span> 2&gt;&amp;1 &gt; /dev/null ...</pre></div></td></tr></table>
+		<p class="continue"><a href="http://www.missgao.net/64wei-debianshi-yong-firefox.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="http://www.missgao.net/ying-pan-an-zhuang-debian-squeeze-64bitbei-wang.html">硬盘安装DEBIAN SQUEEZE 64BIT备忘</a></h3>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Tue 19 February 2013. Tags: <a href="http://www.missgao.net/tag/debian.html">debian</a>, <a href="http://www.missgao.net/tag/linux.html">linux</a>, </h6>
+	<p>这不是一个安装手册，只是自己安装的一些重点项目记录   </p>
+<p>安装前的情况<br />
+ 软件：WIN7旗舰版-64bit EN + BT5双系统<br />
+ 硬件：LENOVO E46A  </p>
+<p>规划安装后情况：<br />
+ WIN7 64+DEBIAN 64，去除BT5.<br />
+ BT5下/home分区保留，安装完后修改debian的fstab再将/home挂载  </p>
+<p>所有常用软件放/usr/local,并将/home/local单独分区，防止再重装<br />
+ 1.下载DEBIAN 6.0 amd64,放在FAT32或LINUX格式分区下</p>
+<div class="highlight"><pre><span class="nl">http:</span><span class="c1">//cdimage.debian.org/debian-cd/6.0.6/amd64/iso-dvd/debian-6.0.6-amd64-DVD-1.iso</span>
+</pre></div>
+
+
+<p>2.下载GRUB4DOS所用引导文件，3个全下 ...</p>
+		<p class="continue"><a href="http://www.missgao.net/ying-pan-an-zhuang-debian-squeeze-64bitbei-wang.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+<div class="row" style="margin-bottom: -1.25em;">
+	<div class="small-12 columns text-center">
+		<div class="pagination-centered">
+			<ul class="pagination">
+				<li class="arrow"><a href="http://www.missgao.net/index.html">&larr; Previous</a></li>
+				<li class=""><a href="http://www.missgao.net/index.html">1</a></li>
+				<li class="current"><a href="http://www.missgao.net/index2.html">2</a></li>
+				<li class="arrow unavailable"><a href="#">&rarr; Next</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->

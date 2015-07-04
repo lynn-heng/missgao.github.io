@@ -62,13 +62,8 @@
 
 
 						<li><label>Monthly Archives</label></li>
-									<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-									<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
-									<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-									<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
-									<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-									<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-									<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
+									<li><a href="/posts/2014/10/index.html">October 2014 (1)</a></li>
+									<li><a href="/posts/2014/09/index.html">September 2014 (1)</a></li>
 
 						<li><label>Social</label></li>
 							<li><a href="#">Another social link</a></li>
@@ -100,10 +95,49 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>Posts Tagged With 'vim'</h2>
+								</div>
+							</div>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+<article>
+	<h3><a href="http://www.missgao.net/awesomeyin-liang-shi-xian.html">awesome音量实现</a></h3>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/software.html">software</a> on Wed 29 October 2014. Tags: <a href="http://www.missgao.net/tag/vim.html">vim</a>, </h6>
+	<p><img alt="awesome Volume" src="http://imglf0.ph.126.net/xR2Xw3WHhbGZ1sV5t_oVlA==/3830030008201934964.png" />
+自己实现了awesome的音量。没有使用网上的方法（大多是使用vicious，看了下它的代码，感觉不太合适），自己对着官方说明看了看，简单实现如图所示。</p>
+<p>1.上面显示音量图标，目前是静音，如果不是静音则显示正常声音图标。
+2.指向声音图标显示当前音量框，即使静音也显示，因为切换至非静音时就是这个音量；移出声音图标音量框消失。
+3.使用静音键切换静音非静音，同时音量图标变化
+4.使用声音增大缩小键显示音量框</p>
+<p>下一步再做个电量显示，这样右上角的信息显示查不多了（内存、CPU之类的监控不想放那里，感觉占地儿），终级的把时间显示那边转成日历方式，并加上事件提醒（使用cal命令结果，不知是否能实现）</p>
+		<p class="continue"><a href="http://www.missgao.net/awesomeyin-liang-shi-xian.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="http://www.missgao.net/wo-zan-shi-de-vimrc.html">我暂时的VIMRC</a></h3>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/software.html">software</a> on Thu 25 September 2014. Tags: <a href="http://www.missgao.net/tag/vim.html">vim</a>, </h6>
+	<p>用了好长时间的LINUX，话说LINUX大神门大多用VIM编辑器，我一直在尝试，但总还不是十分习惯。偶尔用之也得设置下，下面是我现在的设置，慢慢补之吧，等我的vimrc够强悍了估计VIM水平才到家。</p>
+<div class="highlight"><pre><span class="s">&quot; how many lines of history VIM has to remember</span>
+<span class="n">set</span> <span class="n">history</span><span class="o">=</span><span class="mi">700</span>
+
+<span class="s">&quot; Enable filetype plugins</span>
+<span class="n">filetype</span> <span class="n">plugin</span> <span class="n">on</span>
+<span class="n">filetype</span> <span class="n">indent</span> <span class="n">on</span>
+
+<span class="s">&quot; No annoying sound on errors</span>
+<span class="n">set</span> <span class="n">noerrorbells</span>
+<span class="n">set</span> <span class="n">novisualbell</span>
+
+<span class="s">&quot; Set utf8 as standard encoding</span>
+<span class="n">set</span> <span class="n">encoding</span><span class="o">=</span><span class="n">utf8</span>
+
+<span class="s">&quot; Turn backup off, since ...</span></pre></div>
+		<p class="continue"><a href="http://www.missgao.net/wo-zan-shi-de-vimrc.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->
@@ -124,13 +158,8 @@
 							<div class="panel">
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
-											<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-											<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
-											<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-											<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
-											<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-											<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-											<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
+											<li><a href="/posts/2014/10/index.html">October 2014 (1)</a></li>
+											<li><a href="/posts/2014/09/index.html">September 2014 (1)</a></li>
 								</ul>
 							</div>
 

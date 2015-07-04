@@ -63,12 +63,6 @@
 
 						<li><label>Monthly Archives</label></li>
 									<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-									<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
-									<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-									<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
-									<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-									<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-									<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
 
 						<li><label>Social</label></li>
 							<li><a href="#">Another social link</a></li>
@@ -100,10 +94,37 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>Posts Tagged With 'thunderbird'</h2>
+								</div>
+							</div>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+<article>
+	<h3><a href="http://www.missgao.net/exquilla-po-jie.html">exquilla 破解</a></h3>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/software.html">software</a> on Mon 09 February 2015. Tags: <a href="http://www.missgao.net/tag/thunderbird.html">thunderbird</a>, </h6>
+	<p>注册验证相关的算法都在components里面的一个DLL文件exquilla-beta-i686.dll（linux下是一个同名的.so文件），注册码的结构是：</p>
+<div class="highlight"><pre><span class="n">EX0</span><span class="p">,</span><span class="o">*</span><span class="err">@</span><span class="o">*</span><span class="p">,</span><span class="mi">2015</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mi">19</span><span class="p">,</span><span class="mi">80324</span><span class="n">c6d8724c3e4cd0111b51a5718ad</span>
+</pre></div>
+
+
+<p>可以看到，注册码被用逗号分成了四个部分：</p>
+<p>第一部分是注册类型，EX0是免费给的试用类型，我不知道EX1、EX2是什么情况，但试了下，EX1是可以用的</p>
+<p>第二部分是邮件，<em>@</em>是免费给的60天试用的，这里要填有效的Exchange邮箱，可以在选项里Valid Emails里看到</p>
+<p>第三部分是license过期日期。</p>
+<p>第四部分是校验码，分别是前三个部分再加上356B4B5C算出来的MD5值。</p>
+<p>例如，注册类型EX1、Exchange邮箱abc@missgao.com，到期日期2015-12-18，可以计算出MD5值为：</p>
+<div class="highlight"><pre><span class="n">MD5</span><span class="p">(</span><span class="n">EX1</span><span class="p">,</span><span class="n">abc</span><span class="err">@</span><span class="n">missgao</span><span class="p">.</span><span class="n">com</span><span class="p">,</span><span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">18</span><span class="p">,</span><span class="mi">356</span><span class="n">B4B5C</span><span class="p">)</span><span class="o">=</span>
+<span class="n">d85f9f9e7d8c46bfb04956c2d471a736</span>
+</pre></div>
+
+
+<p>用计算出的MD5值作为注册码的最后一部分即可注册成功。</p>
+		<p class="continue"><a href="http://www.missgao.net/exquilla-po-jie.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->
@@ -125,12 +146,6 @@
 								<h5>Monthly Archives</h5>
 								<ul class="side-nav">
 											<li><a href="/posts/2015/02/index.html">February 2015 (1)</a></li>
-											<li><a href="/posts/2014/10/index.html">October 2014 (4)</a></li>
-											<li><a href="/posts/2014/09/index.html">September 2014 (3)</a></li>
-											<li><a href="/posts/2014/04/index.html">April 2014 (1)</a></li>
-											<li><a href="/posts/2013/07/index.html">July 2013 (1)</a></li>
-											<li><a href="/posts/2013/04/index.html">April 2013 (1)</a></li>
-											<li><a href="/posts/2013/02/index.html">February 2013 (2)</a></li>
 								</ul>
 							</div>
 

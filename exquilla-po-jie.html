@@ -55,7 +55,7 @@
 						<li><a href="http://www.missgao.net">Home</a></li>
 						<li><label>Categories</label></li>
 							<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
-							<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
+							<li class="active"><a href="http://www.missgao.net/category/software.html">software</a></li>
 
 						<li><label>Links</label></li>
 							<li><a href="#">You can modify those links in your config file</a></li>
@@ -87,7 +87,7 @@
 					<section class="top-bar-section">
 						<ul class="left">
 								<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
-								<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
+								<li class="active"><a href="http://www.missgao.net/category/software.html">software</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
                                                                                                                                              
@@ -100,10 +100,46 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
+<article>
+	<h2>exquilla 破解</h2>
+	<p>注册验证相关的算法都在components里面的一个DLL文件exquilla-beta-i686.dll（linux下是一个同名的.so文件），注册码的结构是：</p>
+<div class="highlight"><pre><span class="n">EX0</span><span class="p">,</span><span class="o">*</span><span class="err">@</span><span class="o">*</span><span class="p">,</span><span class="mi">2015</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mi">19</span><span class="p">,</span><span class="mi">80324</span><span class="n">c6d8724c3e4cd0111b51a5718ad</span>
+</pre></div>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+
+<p>可以看到，注册码被用逗号分成了四个部分：</p>
+<p>第一部分是注册类型，EX0是免费给的试用类型，我不知道EX1、EX2是什么情况，但试了下，EX1是可以用的</p>
+<p>第二部分是邮件，<em>@</em>是免费给的60天试用的，这里要填有效的Exchange邮箱，可以在选项里Valid Emails里看到</p>
+<p>第三部分是license过期日期。</p>
+<p>第四部分是校验码，分别是前三个部分再加上356B4B5C算出来的MD5值。</p>
+<p>例如，注册类型EX1、Exchange邮箱abc@missgao.com，到期日期2015-12-18，可以计算出MD5值为：</p>
+<div class="highlight"><pre><span class="n">MD5</span><span class="p">(</span><span class="n">EX1</span><span class="p">,</span><span class="n">abc</span><span class="err">@</span><span class="n">missgao</span><span class="p">.</span><span class="n">com</span><span class="p">,</span><span class="mi">2015</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">18</span><span class="p">,</span><span class="mi">356</span><span class="n">B4B5C</span><span class="p">)</span><span class="o">=</span>
+<span class="n">d85f9f9e7d8c46bfb04956c2d471a736</span>
+</pre></div>
+
+
+<p>用计算出的MD5值作为注册码的最后一部分即可注册成功。</p>
+	<hr/>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/software.html">software</a> on Mon 09 February 2015. Tags: <a href="http://www.missgao.net/tag/thunderbird.html">thunderbird</a>, </h6>
+</article>
+
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'heng';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->

@@ -54,7 +54,7 @@
 					<ul class="off-canvas-list">
 						<li><a href="http://www.missgao.net">Home</a></li>
 						<li><label>Categories</label></li>
-							<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
+							<li class="active"><a href="http://www.missgao.net/category/linux.html">linux</a></li>
 							<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
 
 						<li><label>Links</label></li>
@@ -86,7 +86,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
-								<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
+								<li class="active"><a href="http://www.missgao.net/category/linux.html">linux</a></li>
 								<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -100,10 +100,62 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
+<article>
+	<h2>在GitHub使用jekyll建站记录</h2>
+	<p>LINUX下的安装命令</p>
+<div class="highlight"><pre><span class="c">#aptitude install ruby ruby-dev</span>
+<span class="c">#gem install jekyll</span>
+<span class="c">#gem install rdiscount</span>
+</pre></div>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+
+<p>安装rdiscount是因为默认的maruku对我写的md文档有些会报错，没心思研究为什么，换rdiscount解决了</p>
+<p>WINDOWS install</p>
+<p>不记得具体步骤了，网上搜一下windows jekyll会有大把的信息。记录下遇到的问题：<br />
+1.使用安装版的RubyInstaller，我用ZIP版的时间发生一个莫明其妙的问题<br />
+2.修改convertible.rb文件解决中文会出错，加入:encoding =&gt; "utf-8".参考路径C:\Ruby\lib\ruby\gems\1.9.1\gems\jekyll-1.0.3\lib\jekyll</p>
+<div class="highlight"><pre><span class="n">self</span><span class="p">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">File</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span><span class="o">:</span><span class="n">encoding</span> <span class="o">=&gt;</span> <span class="s">&quot;utf-8&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>建个站点</p>
+<div class="highlight"><pre><span class="err">$</span><span class="n">jekyll</span> <span class="n">new</span> <span class="n">sitename</span>
+<span class="err">$</span><span class="n">cd</span> <span class="n">sitename</span>
+<span class="err">$</span><span class="n">jekyll</span> <span class="n">server</span>
+</pre></div>
+
+
+<p>现在可以在本机通过http://localhost:4000 查看效果了,</p>
+<p>修改_config.yml，加入下面一行</p>
+<div class="highlight"><pre><span class="n">markdown</span><span class="o">:</span> <span class="n">rdiscount</span>
+</pre></div>
+
+
+<p>让jettly使用rdiscount解析markdown文档</p>
+<p>绑域名，我绑的是二级域名，按GitHub上的说明看顶域和二级域是不同的。<br />
+修改域名绑定，加入一个CNAME,值填对应的[youname].github.io<br />
+GitHub项目中建立CNAME文件，填上要绑的二级域名</p>
+	<hr/>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Wed 24 July 2013. Tags: <a href="http://www.missgao.net/tag/debian.html">debian</a>, <a href="http://www.missgao.net/tag/linux.html">linux</a>, <a href="http://www.missgao.net/tag/jekyll.html">jekyll</a>, </h6>
+</article>
+
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'heng';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->

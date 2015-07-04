@@ -54,7 +54,7 @@
 					<ul class="off-canvas-list">
 						<li><a href="http://www.missgao.net">Home</a></li>
 						<li><label>Categories</label></li>
-							<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
+							<li class="active"><a href="http://www.missgao.net/category/linux.html">linux</a></li>
 							<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
 
 						<li><label>Links</label></li>
@@ -86,7 +86,7 @@
 
 					<section class="top-bar-section">
 						<ul class="left">
-								<li ><a href="http://www.missgao.net/category/linux.html">linux</a></li>
+								<li class="active"><a href="http://www.missgao.net/category/linux.html">linux</a></li>
 								<li ><a href="http://www.missgao.net/category/software.html">software</a></li>
 						</ul>
                         <ul class="right">                                                                                                                                           
@@ -100,10 +100,51 @@
 					<div class="row">
 						<!-- Main Content -->
 						<div class="medium-9 small-12 columns" role="content">
-    <h1>Authors on Nemo's home</h1>
+<article>
+	<h2>64位debian使用firefox</h2>
+	<p>主要解决相应wrong ELF class: ELFCLASS64错及插件异常</p>
+<p>不多描述，直接放方法：</p>
+<p>首先要有安装ia32-libs、lib32-libs-gtk，因为firefox只有32位的，但好像他默认是去读32位下对应的so文件，虽然我们装了32位Lib它也不去找。</p>
+<p>说明下我的情况：我直接在mozilla上下载的firefox，然后放在了/usr/local下，这时启动firefox是要用完整路径才可以。</p>
+<p>方法：创建/usr/local/bin/firefox，内容如下</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash -e</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib32:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export </span><span class="nv">GTK_PATH</span><span class="o">=</span>/usr/lib32/gtk-2.0
+/usr/local/firefox/firefox <span class="s2">&quot;$@&quot;</span> 2&gt;&amp;1 &gt; /dev/null &amp;
+</pre></div>
+</td></tr></table>
 
-    <ul>        <li><a href="http://www.missgao.net/author/nemo.html">nemo</a> (13)</li>
-    </ul>
+<p>具体原因不再解释，懂的自然懂，不懂的解决问题即可</p>
+<p>下面描述下flash插件问题：</p>
+<p>我测试的情况如下，在adobe网站下载linux的64不可用。我纠结了一两天，后来下载了32位的竟然可以了。当然上面的步骤需要先做一下，上面的步骤如果没有进行也是可以启动firefox的，我是在处理支付宝密码输入控件时想到的，当时支付宝默认给我装的是64控件，结果也有报ELFCLASS64错，然后我将支付宝的控件也换做32的竟然可以了。</p>
+<p>附：支付宝的控件默认会根据你的系统环境会安装控件，所以装的是64的，想装32的只需做一个简单的改动：得到对应安装文件先不要执行，而修改下，将里边删除\~/.aliedit语句删除，然后前往\~/.aliedit/install/lib下看，会看到一个64一个32的lib，对应复制到\~/.mozilla/plugins下即可</p>
+<ul>
+<li>补充说明——LINUX下可以直接用64位的FIREFOX，到下面这里找所需要的版本吧：ftp://ftp.mozilla.org/pub/firefox/releases/latest/linux-x86_64/</li>
+</ul>
+	<hr/>
+	<h6>Written by <a href="http://www.missgao.net/author/nemo.html">nemo</a> in <a href="http://www.missgao.net/category/linux.html">linux</a> on Thu 21 February 2013. Tags: <a href="http://www.missgao.net/tag/debian.html">debian</a>, <a href="http://www.missgao.net/tag/firefox.html">firefox</a>, <a href="http://www.missgao.net/tag/linux.html">linux</a>, </h6>
+</article>
+
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'heng';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->
