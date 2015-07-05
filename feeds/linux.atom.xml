@@ -27,7 +27,7 @@
 这次决定一次要把BLFS做完，搞出来一个可以达到日常应用的环境。
 使用最新的LFS7.3｜BLFS6.3，然后开始了长达一周的LFS历程。
 终于完成了，上成果图&lt;/p&gt;
-&lt;p&gt;&lt;img alt="LFS桌面" src="http://t1.qpic.cn/mblogpic/010166171d32db865a7c/2000" /&gt;&lt;/p&gt;</summary><category term="lfs"></category><category term="linux"></category></entry><entry><title>在GitHub使用jekyll建站记录</title><link href="http://www.missgao.net/zai-githubshi-yong-jekylljian-zhan-ji-lu.html" rel="alternate"></link><updated>2013-07-24T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2013-07-24:zai-githubshi-yong-jekylljian-zhan-ji-lu.html</id><summary type="html">&lt;p&gt;LINUX下的安装命令&lt;/p&gt;
+&lt;p&gt;&lt;img alt="LFS桌面" src="http://image17-c.poco.cn/mypoco/myphoto/20150705/19/17835138520150705194356045.jpg?1024x641_120" /&gt;&lt;/p&gt;</summary><category term="lfs"></category><category term="linux"></category></entry><entry><title>在GitHub使用jekyll建站记录</title><link href="http://www.missgao.net/zai-githubshi-yong-jekylljian-zhan-ji-lu.html" rel="alternate"></link><updated>2013-07-24T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2013-07-24:zai-githubshi-yong-jekylljian-zhan-ji-lu.html</id><summary type="html">&lt;p&gt;LINUX下的安装命令&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#aptitude install ruby ruby-dev&lt;/span&gt;
 &lt;span class="c"&gt;#gem install jekyll&lt;/span&gt;
 &lt;span class="c"&gt;#gem install rdiscount&lt;/span&gt;
@@ -207,4 +207,4 @@ GitHub项目中建立CNAME文件，填上要绑的二级域名&lt;/p&gt;</summar
 &lt;p&gt;MTEXTRA.TTF  simhei.ttf  simsun.ttc  webdings.ttf  WINGDNG2.TTF&lt;br /&gt;
  simfang.ttf  simkai.ttf  symbol.ttf  wingding.ttf  WINGDNG3.TTF&lt;/p&gt;
 &lt;p&gt;先到这里了，附上一张近照。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="桌面" src="http://c.hiphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=a58802b2d833c895a27e987ee12802cd/43a7d933c895d14307e7910672f082025aaf0705.jpg?referer=e0416e668ad4b31ca92ba18b611c&amp;amp;x=.jpg" /&gt;&lt;/p&gt;</summary><category term="debian"></category><category term="linux"></category></entry></feed>
+&lt;p&gt;&lt;img alt="桌面" src="http://image17-c.poco.cn/mypoco/myphoto/20150705/19/17835138520150705194427059.png?550x344_130" /&gt;&lt;/p&gt;</summary><category term="debian"></category><category term="linux"></category></entry></feed>

@@ -15,7 +15,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;用计算出的MD5值作为注册码的最后一部分即可注册成功。&lt;/p&gt;</summary><category term="thunderbird"></category></entry><entry><title>awesome音量实现</title><link href="http://www.missgao.net/awesomeyin-liang-shi-xian.html" rel="alternate"></link><updated>2014-10-29T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-10-29:awesomeyin-liang-shi-xian.html</id><summary type="html">&lt;p&gt;&lt;img alt="awesome Volume" src="http://imglf0.ph.126.net/xR2Xw3WHhbGZ1sV5t_oVlA==/3830030008201934964.png" /&gt;
+&lt;p&gt;用计算出的MD5值作为注册码的最后一部分即可注册成功。&lt;/p&gt;</summary><category term="thunderbird"></category></entry><entry><title>awesome音量实现</title><link href="http://www.missgao.net/awesomeyin-liang-shi-xian.html" rel="alternate"></link><updated>2014-10-29T00:00:00+08:00</updated><author><name>nemo</name></author><id>tag:www.missgao.net,2014-10-29:awesomeyin-liang-shi-xian.html</id><summary type="html">&lt;p&gt;&lt;img alt="awesome Volume" src="http://image17-c.poco.cn/mypoco/myphoto/20150705/19/17835138520150705194216055.png?190x78_130" /&gt;
 自己实现了awesome的音量。没有使用网上的方法（大多是使用vicious，看了下它的代码，感觉不太合适），自己对着官方说明看了看，简单实现如图所示。&lt;/p&gt;
 &lt;p&gt;1.上面显示音量图标，目前是静音，如果不是静音则显示正常声音图标。&lt;/p&gt;
 &lt;p&gt;2.指向声音图标显示当前音量框，即使静音也显示，因为切换至非静音时就是这个音量；移出声音图标音量框消失。&lt;/p&gt;
