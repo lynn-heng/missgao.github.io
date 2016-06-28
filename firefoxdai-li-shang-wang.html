@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Nemo's Blog - firefox代理上网</title>
+    <meta name="description" content="">
+    <meta name="author" content="Bailin Heng">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="/theme/local.css" rel="stylesheet">
+    <link href="/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="">Nemo's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+            <li><a href="/pages/about.html">About</a></li>
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>firefox代理上网</h1>
+Sun 28 September 2014
+
+by <a class="url fn" href="/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+        </div>
+	
+        <div><p>上网环境不理想，无法外网。好在发现了一台内网的机器可以连接外网，这样就可以用SSH隧道来外网了，因为不在一个网段，所以用外网那台机器做网关也实现不了。就用了代理的方式。</p>
+<p>然而准备打开网页是又出问题了，因为域名无法解析打开网页还是存在问题，可能需要把能上外网的那台机器上装dns server了，然而毕竟那个机器不在我的管理之下，借之上网已属侥幸，再加装软件就有点不合适了。</p>
+<p>网上搜索，竟然发现了FIREFOX的network.proxy.socks_remote_dns参数，该参数将域名传递给socks5服务器去解析，遂试之，果然可行。下面需要找下thunderbird下如何设了:)</p></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="/archives.html">Archives</a>
+                <li><a href="/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="/category/linux.html">linux</a></li>
+                <li><a href="/category/software.html">software</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="http://getpelican.com/">Pelican</a></li>
+                <li><a href="http://python.org/">Python.org</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="https://github.com/missgao">Github</a></li>
+                <li><a href="http://www.linkedin.com/in/bailin-heng">Linkedin</a></li>
+                <li><a href="http://32469774.qzone.qq.com">Qzone</a></li>
+                <li><a href="http://weibo.com/lge0">Weibo</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

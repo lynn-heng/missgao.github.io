@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Nemo's Blog - linux连接中文无线</title>
+    <meta name="description" content="">
+    <meta name="author" content="Bailin Heng">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="/theme/local.css" rel="stylesheet">
+    <link href="/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="">Nemo's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+            <li><a href="/pages/about.html">About</a></li>
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>linux连接中文无线</h1>
+Thu 16 October 2014
+
+by <a class="url fn" href="/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+        </div>
+	
+        <div><p>在客户的办公室连接内网，可这边的无线名称为中文，我试了下直接将对应中文写入配置文件（使用的netctl连接），结果不行。</p>
+<p>又使用iw 的scan命令查询，得到的对应SSID是以\x开始的16进制串，将对应的一串16进制设置进去报SSID太长，又是不行。</p>
+<p>结果只有先用WINDOWS来连。网上查来查去，也没有找到相应的解决方案。</p>
+<p>后来自己仔细想了下，问题应该出在编码上，我的locale设置的utf-8。中文无线名称的编码应该就是GB2312。后来就在编码上测试了很久，最终发现原来是很简单一件事：</p>
+<p>我还是先建立了一个配置文件，SSID处正常填入中文。此时该文件为UTF8编码，再使用iconv进行编码转换(utf8 -&gt; gb2312)，得到一个新的文件，使用此配置文件连接就直接成功了。如果不是使用netctl而是使用wpa_supplicant命令直接连接，那么将wpa_supplicant的配置文件存成或转换gb2312编码即可。</p></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="/archives.html">Archives</a>
+                <li><a href="/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="/category/linux.html">linux</a></li>
+                <li><a href="/category/software.html">software</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="http://getpelican.com/">Pelican</a></li>
+                <li><a href="http://python.org/">Python.org</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="https://github.com/missgao">Github</a></li>
+                <li><a href="http://www.linkedin.com/in/bailin-heng">Linkedin</a></li>
+                <li><a href="http://32469774.qzone.qq.com">Qzone</a></li>
+                <li><a href="http://weibo.com/lge0">Weibo</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

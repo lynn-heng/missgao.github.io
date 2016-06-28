@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Nemo's Blog - exquilla 破解</title>
+    <meta name="description" content="">
+    <meta name="author" content="Bailin Heng">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="/theme/local.css" rel="stylesheet">
+    <link href="/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="">Nemo's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+            <li><a href="/pages/about.html">About</a></li>
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>exquilla 破解</h1>
+Mon 09 February 2015
+
+by <a class="url fn" href="/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+        </div>
+	
+        <div><p>注册验证相关的算法都在components里面的一个DLL文件exquilla-beta-i686.dll（linux下是一个同名的.so文件），注册码的结构是：</p>
+<div class="highlight"><pre><span></span>EX0,*@*,2015-03-19,80324c6d8724c3e4cd0111b51a5718ad
+</pre></div>
+
+
+<p>可以看到，注册码被用逗号分成了四个部分：</p>
+<p>第一部分是注册类型，EX0是免费给的试用类型，我不知道EX1、EX2是什么情况，但试了下，EX1是可以用的</p>
+<p>第二部分是邮件，*@*是免费给的60天试用的，这里要填有效的Exchange邮箱，可以在选项里Valid Emails里看到</p>
+<p>第三部分是license过期日期。</p>
+<p>第四部分是校验码，分别是前三个部分再加上356B4B5C算出来的MD5值。</p>
+<p>例如，注册类型EX1、Exchange邮箱abc@missgao.com，到期日期2015-12-18，可以计算出MD5值为：</p>
+<div class="highlight"><pre><span></span>MD5(EX1,abc@missgao.com,2015-12-18,356B4B5C)=
+d85f9f9e7d8c46bfb04956c2d471a736
+</pre></div>
+
+
+<p>用计算出的MD5值作为注册码的最后一部分即可注册成功。</p></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="/archives.html">Archives</a>
+                <li><a href="/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="/category/linux.html">linux</a></li>
+                <li><a href="/category/software.html">software</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="http://getpelican.com/">Pelican</a></li>
+                <li><a href="http://python.org/">Python.org</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="https://github.com/missgao">Github</a></li>
+                <li><a href="http://www.linkedin.com/in/bailin-heng">Linkedin</a></li>
+                <li><a href="http://32469774.qzone.qq.com">Qzone</a></li>
+                <li><a href="http://weibo.com/lge0">Weibo</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>
