@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - Tags</title>
+    <title>Nemo's Blog - linux下防rm命令误删</title>
     <meta name="description" content="">
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,17 +53,49 @@
     <div class="row">
 
         <div class="span9">
-<ul>
-    <li><a href="http://www.missgao.net/tag/awesome.html">awesome</a></li>
-    <li><a href="http://www.missgao.net/tag/debian.html">debian</a></li>
-    <li><a href="http://www.missgao.net/tag/firefox.html">firefox</a></li>
-    <li><a href="http://www.missgao.net/tag/jekyll.html">jekyll</a></li>
-    <li><a href="http://www.missgao.net/tag/lfs.html">lfs</a></li>
-    <li><a href="http://www.missgao.net/tag/linux.html">linux</a></li>
-    <li><a href="http://www.missgao.net/tag/shell.html">shell</a></li>
-    <li><a href="http://www.missgao.net/tag/thunderbird.html">thunderbird</a></li>
-    <li><a href="http://www.missgao.net/tag/wifi.html">wifi</a></li>
-</ul>
+    <div class='article'>
+        <div class="content-title">
+            <h1>linux下防rm命令误删</h1>
+Fri 01 July 2016
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+        </div>
+	
+        <div><p>前几天在自己的机器上一时手误在一个工作目录<em>rm -f *</em>了一下，执行完就感觉不对，有种双11想剁手的冲动。好在这个工作目录中的文件不多，前段时间给其它人都分别发过，在邮件的附件中一个个找回了。但报着不怕出问题，但问题不能重复出的态度，决定找一个方法来避免以后的误犯。<br />
+一通GOOGLE后发现了一个方案：使用创建一个-i文件的方法</p>
+<div class="highlight"><pre><span></span>touch -- -i
+</pre></div>
+
+
+<p>该方案可以防止在-i文件所在目录下执行<em>rm -rf *</em>,因为此此*会被shell扩展为当前目录下的文件，而<em>-i</em>是rm参数（强制提醒），这时就不会直接将文件删掉了，当然也可以将rm给建个<em>rm -i</em>的别名（RHEL就是这么干的），但在自己的电脑上还是不时需要删除多个文件的，加完后自己操作不便，所以使用touch的方法还是很不错的。但该方法不能处理如下的情况：</p>
+<div class="highlight"><pre><span></span>rm -rf ./*
+rm -rf /path/*
+</pre></div>
+
+
+<p>因为这时SHELL扩展出来的<em>-i</em>前面带有路径，已经不能被解析为参数了。<br />
+还有一个习惯要以后注意养成，就是将<em>-f</em>或<em>-rf</em>的参数放在rm命令的最后边，这样防止有时路径未输入完整时按了enter（话说我也曾有过这种经历）<br />
+先将平常自己经常用的目录中建起-i文件来，虽然有个-i文件对强迫症来说看着不太爽，但能防误rm我忍了。</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'missgao'; 
+    var disqus_title = 'linux下防rm命令误删';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
         </div>
         
         <div class="span3">

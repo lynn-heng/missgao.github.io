@@ -60,7 +60,38 @@
  
 
     <div class='article'>
-        <a href="http://www.missgao.net/ying-pan-an-zhuang-debian-squeeze-64bitbei-wang.html"><h2>硬盘安装DEBIAN SQUEEZE 64BIT备忘</h2></a>
+        <a href="http://www.missgao.net/2013-64bit-debian-firefox.html"><h2>64位debian使用firefox</h2></a>
+        <div class= "well small"> Thu 21 February 2013
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>主要解决相应wrong ELF class: ELFCLASS64错及插件异常</p>
+<p>不多描述，直接放方法：</p>
+<p>首先要有安装ia32-libs、lib32-libs-gtk，因为firefox只有32位的，但好像他默认是去读32位下对应的so文件，虽然我们装了32位Lib它也不去找。</p>
+<p>说明下我的情况：我直接在mozilla上下载的firefox，然后放在了/usr/local下，这时启动firefox是要用完整路径才可以。</p>
+<p>方法：创建/usr/local/bin/firefox，内容如下</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -e</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib32:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export</span> <span class="nv">GTK_PATH</span><span class="o">=</span>/usr/lib32/gtk-2.0
+/usr/local/firefox/firefox <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; /dev/null <span class="p">&amp;</span>
+</pre></div>
+
+
+<p>具体原因不再解释，懂的自然懂，不懂的解决问题即可</p>
+<p>下面描述下flash插件问题 ...</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2013-64bit-debian-firefox.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2013-install-debian-disk.html"><h2>硬盘安装DEBIAN SQUEEZE 64BIT备忘</h2></a>
         <div class= "well small"> Tue 19 February 2013
 
 by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
@@ -85,31 +116,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 
 </li>
 <li>
-<p>下载GRUB4DOS所用引导文件，3个全下，放任一位置，建议放C盘根下――boot.img.gz不知做什么用的</p>
-<div class="highlight"><pre><span></span>http://ftp.nl.debian.org/debian/dists/squeeze/main/installer-amd64/current/images/hd-media/
-</pre></div>
-
-
-</li>
-<li>
-<p>GRUB4DOS按C命令行,如果引导文件未放在C盘根下或安装有多块硬盘则需要改变(hd0,0)</p>
-<div class="highlight"><pre><span></span>kernel (hd0,0)/vmlinuz
-initrd (hd0,0)/initrd.gz
-boot
-</pre></div>
-
-
-</li>
-<li>
-<p>引导不安装在/dev/sda上，而装在/dev/sdaX上，因为目前还是在WINDOWS上工作的多些，还是用WIN7的引导</p>
-</li>
-<li>
-<p>安装只安装标准系统，其它的装好再说。</p>
-<h1>到这里已经装完了</h1>
-</li>
-<li>
-<p>下载安装nonfree的网卡驱动firmware-iwlwifi_0.28+squeeze1_all.deb，我以前装32位DEBIAN时就下过了，这个包不分32位和64位</p>
-<div class="highlight"><pre><span></span>dpkg -i firmware-iwlwifi_0 ...</pre></div></li></ol> <a class="btn btn-info xsmall" href="http://www.missgao.net/ying-pan-an-zhuang-debian-squeeze-64bitbei-wang.html">read more</a></div>
+<p>下载GRUB4DOS所用引导文件，3个全下，放任一位置，建议放C盘根下 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://www.missgao.net/2013-install-debian-disk.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
@@ -190,7 +197,7 @@ boot
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2016 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
 </footer>
 
 </div> <!-- /container -->

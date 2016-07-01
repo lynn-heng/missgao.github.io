@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - 2038年问题</title>
+    <title>Nemo's Blog - firefox代理上网</title>
     <meta name="description" content="">
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +55,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>2038年问题</h1>
-Thu 23 October 2014
+            <h1>firefox代理上网</h1>
+Sun 28 September 2014
 
 by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
  
@@ -64,12 +64,9 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 
         </div>
 	
-        <div><p>今天习惯性pacman -Syu.发现linux kernel出3.17了。</p>
-<p>网上查了下3.17的新特性，发现有一项是解决2038年问题，以前只知2000年问题，于是查了一下，原来如此：</p>
-<blockquote>
-<p>在计算机应用上，2038年问题可能会导致某些软件在2038年无法正常工作。所有使用UNIX时间表示时间的程序都将受其影响，因为它们以自1970年1月1日经过的秒数（忽略闰秒）来表示时间。这种时间表示法在类Unix（Unix-like）操作系统上是一个标准，并会影响以其C编程语言开发给其他大部份操作系统使用的软件。在大部份的32位操作系统上，此“time_t”数据模式使用一个有正负号的32位元整数(signedint32)存储计算的秒数。依照此“time_t”标准，在此格式能被表示的最后时间是2038年1月19日03:14:07，星期二（UTC）。超过此一瞬间，时间将会被掩盖（wrap around）且在内部被表示为一个负数，并造成程序无法工作，因为它们无法将此时间识别为2038年，而可能会依个别实作而跳回1970年或1901年。错误的计算及动作可能因此产生。</p>
-</blockquote>
-<p>总的来说就是32位的老kernel可能会在2038年的1月19号出问题。</p></div>
+        <div><p>上网环境不理想，无法外网。好在发现了一台内网的机器可以连接外网，这样就可以用SSH隧道来外网了，因为不在一个网段，所以用外网那台机器做网关也实现不了。就用了代理的方式。</p>
+<p>然而准备打开网页是又出问题了，因为域名无法解析打开网页还是存在问题，可能需要把能上外网的那台机器上装dns server了，然而毕竟那个机器不在我的管理之下，借之上网已属侥幸，再加装软件就有点不合适了。</p>
+<p>网上搜索，竟然发现了FIREFOX的network.proxy.socks_remote_dns参数，该参数将域名传递给socks5服务器去解析，遂试之，果然可行。下面需要找下thunderbird下如何设了:)</p></div>
 	
         <hr>
 
@@ -77,7 +74,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'missgao'; 
-    var disqus_title = '2038年问题';
+    var disqus_title = 'firefox代理上网';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -152,7 +149,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2016 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
 </footer>
 
 </div> <!-- /container -->

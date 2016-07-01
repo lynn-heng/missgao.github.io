@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - awesome音量实现</title>
+    <title>Nemo's Blog - 在GitHub使用jekyll建站记录</title>
     <meta name="description" content="">
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +55,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>awesome音量实现</h1>
-Wed 29 October 2014
+            <h1>在GitHub使用jekyll建站记录</h1>
+Wed 24 July 2013
 
 by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
  
@@ -64,23 +64,41 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 
         </div>
 	
-        <div><p><img alt="awesome Volume" src="http://image17-c.poco.cn/mypoco/myphoto/20150705/19/17835138520150705194216055.png?190x78_130" />
-自己实现了awesome的音量。没有使用网上的方法（大多是使用vicious，看了下它的代码，感觉不太合适），自己对着官方说明看了看，简单实现如图所示。</p>
+        <div><p>LINUX下的安装命令</p>
+<div class="highlight"><pre><span></span>#aptitude install ruby ruby-dev
+#gem install jekyll
+#gem install rdiscount
+</pre></div>
+
+
+<p>安装rdiscount是因为默认的maruku对我写的md文档有些会报错，没心思研究为什么，换rdiscount解决了</p>
+<p>WINDOWS install</p>
+<p>不记得具体步骤了，网上搜一下windows jekyll会有大把的信息。记录下遇到的问题：</p>
 <ol>
-<li>
-<p>上面显示音量图标，目前是静音，如果不是静音则显示正常声音图标。</p>
-</li>
-<li>
-<p>指向声音图标显示当前音量框，即使静音也显示，因为切换至非静音时就是这个音量；移出声音图标音量框消失。</p>
-</li>
-<li>
-<p>使用静音键切换静音非静音，同时音量图标变化</p>
-</li>
-<li>
-<p>使用声音增大缩小键显示音量框</p>
+<li>使用安装版的RubyInstaller，我用ZIP版的时间发生一个莫明其妙的问题  </li>
+<li>修改convertible.rb文件解决中文会出错，加入:encoding =&gt; "utf-8".参考路径C:\Ruby\lib\ruby\gems\1.9.1\gems\jekyll-1.0.3\lib\jekyll<div class="highlight"><pre><span></span>self.content = File.read(File.join(base, name),:encoding =&gt; &quot;utf-8&quot;)
+</pre></div>
+
+
 </li>
 </ol>
-<p>下一步再做个电量显示，这样右上角的信息显示查不多了（内存、CPU之类的监控不想放那里，感觉占地儿），终级的把时间显示那边转成日历方式，并加上事件提醒（使用cal命令结果，不知是否能实现）</p></div>
+<p>建个站点</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">jekyll</span><span class="x"> new sitename</span>
+<span class="p">$</span><span class="nv">cd</span><span class="x"> sitename</span>
+<span class="p">$</span><span class="nv">jekyll</span><span class="x"> server</span>
+</pre></div>
+
+
+<p>现在可以在本机通过http://localhost:4000 查看效果了,</p>
+<p>修改_config.yml，加入下面一行</p>
+<div class="highlight"><pre><span></span><span class="n">markdown</span><span class="o">:</span> <span class="n">rdiscount</span>
+</pre></div>
+
+
+<p>让jettly使用rdiscount解析markdown文档</p>
+<p>绑域名，我绑的是二级域名，按GitHub上的说明看顶域和二级域是不同的。<br />
+修改域名绑定，加入一个CNAME,值填对应的[youname].github.io<br />
+GitHub项目中建立CNAME文件，填上要绑的二级域名</p></div>
 	
         <hr>
 
@@ -88,7 +106,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'missgao'; 
-    var disqus_title = 'awesome音量实现';
+    var disqus_title = '在GitHub使用jekyll建站记录';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -163,7 +181,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2016 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
 </footer>
 
 </div> <!-- /container -->

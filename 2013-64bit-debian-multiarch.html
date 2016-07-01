@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - LFS+BLFS</title>
+    <title>Nemo's Blog - Debian wheezy 64位安装32位支持</title>
     <meta name="description" content="">
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +55,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>LFS+BLFS</h1>
-Sat 19 April 2014
+            <h1>Debian wheezy 64位安装32位支持</h1>
+Mon 22 April 2013
 
 by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
  
@@ -64,11 +64,29 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 
         </div>
 	
-        <div><p>忽然心血来潮又搞了一次LFS，记得以前搞过一次，已经五六年前了，当时只把LFS搞完BLFS不知如何下手，做的过程也只是全程按手册的命令走。</p>
-<p>这次决定一次要把BLFS做完，搞出来一个可以达到日常应用的环境。</p>
-<p>使用最新的LFS7.3｜BLFS6.3，然后开始了长达一周的LFS历程。</p>
-<p>终于完成了，上成果图</p>
-<p><img alt="LFS桌面" src="http://image17-c.poco.cn/mypoco/myphoto/20150705/19/17835138520150705194356045.jpg?1024x641_120" /></p></div>
+        <div><p>wheezy 不像前些版本直接安装ia32-libs ia32-libs-gtk就可以，因为从wheezy开始搞了个Multiarch，具体的含义不是特别清楚，主要是英文不好，不过从debian的网站上还是看明白了命令。</p>
+<p>以下列出方法</p>
+<p>首先加入对应架构支持</p>
+<div class="highlight"><pre><span></span>dpkg --add-architecture i386
+</pre></div>
+
+
+<p>然后在源中加入对应架构，像我使用的163的源</p>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="sx">[arch=amd64,i386]</span> <span class="kp">http://mirrors.163.com/debian/</span> <span class="kp">wheezy</span> <span class="kp">main</span>
+</pre></div>
+
+
+<p>再更新下</p>
+<div class="highlight"><pre><span></span>aptitude update
+</pre></div>
+
+
+<p>然后就可以安装ia32-libs了</p>
+<div class="highlight"><pre><span></span>aptitude install ia32-libs
+</pre></div>
+
+
+<p>在安装时可以看到一些包的后面多出了:i386字样</p></div>
 	
         <hr>
 
@@ -76,7 +94,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'missgao'; 
-    var disqus_title = 'LFS+BLFS';
+    var disqus_title = 'Debian wheezy 64位安装32位支持';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -151,7 +169,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2016 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
 </footer>
 
 </div> <!-- /container -->

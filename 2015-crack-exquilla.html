@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - LINUX下个别软件破解记录</title>
+    <title>Nemo's Blog - exquilla 破解</title>
     <meta name="description" content="">
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +55,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>LINUX下个别软件破解记录</h1>
-Tue 30 September 2014
+            <h1>exquilla 破解</h1>
+Mon 09 February 2015
 
 by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
  
@@ -64,88 +64,23 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 
         </div>
 	
-        <div><p>SecureCRT：</p>
-<p>因为记录密码、保存LOG、自带SFTP，可以自写脚本等功能，在LINUX下也还是喜欢使用。</p>
-<p>使用16进制编辑器（比如hexedit之类），将6e533e406a45f0b6372f3ea10717000c7120127cd915cef8ed1a3f2c5b替换为785782391ad0b9169f17415dd35f002790175204e3aa65ea10cff20818。之后随便找个注册机或注册码就可以注册了。</p>
-<p>SecureFX：</p>
-<p>使用16进制编辑器（比如hexedit之类），将c847abca184a6c5dfa47dc8efcd700019dc9df3743c640f50be307334fea替换为e02954a71cca592c855c91ecd4170001d6c606d38319cbb0deabebb05126。之后随便找个注册机或注册码就可以注册了。</p>
-<p>Sublime Text Build 2221：</p>
-<p>使用16进制编辑器（比如hexedit之类），将3342 3032替换为3242 3032。然后使用如下注册码：</p>
-<div class="highlight"><pre><span></span>-----BEGIN LICENSE-----
-nemo.heng
-Unlimited User License
-EA7E-21455
-18009210C245D7ED257C7DE27E6DBEAE
-61D50E0DEE242AC0011705E868980175
-86E2A8D9A1A174499D47ECBDD2423ED8
-0E61B819F902723D413237F8887387E1
-EC5F607AFD49D7CED0A20B91500C2E14
-8233575F65C1BB7D27425CEBF7063B11
-19DAA634EDF7DE1940433C89A273E52A
-559239ED4E49383F0A2586041C510369
------END LICENSE-----
+        <div><p>注册验证相关的算法都在components里面的一个DLL文件exquilla-beta-i686.dll（linux下是一个同名的.so文件），注册码的结构是：</p>
+<div class="highlight"><pre><span></span>EX0,*@*,2015-03-19,80324c6d8724c3e4cd0111b51a5718ad
 </pre></div>
 
 
-<p>Sublime Text Build 3065：</p>
-<p>直接使用下面三个LICENSE中的任意一个注册即可</p>
-<div class="highlight"><pre><span></span>----- BEGIN LICENSE -----
-Andrew Weber
-Single User License
-EA7E-855605
-813A03DD 5E4AD9E6 6C0EEB94 BC99798F
-942194A6 02396E98 E62C9979 4BB979FE
-91424C9D A45400BF F6747D88 2FB88078
-90F5CC94 1CDC92DC 8457107A F151657B
-1D22E383 A997F016 42397640 33F41CFC
-E1D0AE85 A0BBD039 0E9C8D55 E1B89D5D
-5CDB7036 E56DE1C0 EFCC0840 650CD3A6
-B98FC99C 8FAC73EE D2B95564 DF450523
------- END LICENSE ------
------ BEGIN LICENSE -----
-K-20
-Single User License
-EA7E-940129
-3A099EC1 C0B5C7C5 33EBF0CF BE82FE3B
-EAC2164A 4F8EC954 4E87F1E5 7E4E85D6
-C5605DE6 DAB003B4 D60CA4D0 77CB1533
-3C47F579 FB3E8476 EB3AA9A7 68C43CD9
-8C60B563 80FE367D 8CAD14B3 54FB7A9F
-4123FFC4 D63312BA 141AF702 F6BBA254
-B094B9C0 FAA4B04C 06CC9AFC FD412671
-82E3AEE0 0F0FAAA7 8FA773C9 383A9E18
------- END LICENSE ------
------ BEGIN LICENSE -----
-J2TeaM
-2 User License
-EA7E-940282
-45CB0D8F 09100037 7D1056EB A1DDC1A2
-39C102C5 DF8D0BF0 FC3B1A94 4F2892B4
-0AEE61BA 65758D3B 2EED551F A3E3478C
-C1C0E04E CA4E4541 1FC1A2C1 3F5FB6DB
-CFDA1551 51B05B5D 2D3C8CFE FA8B4285
-051750E3 22D1422A 7AE3A8A1 3B4188AC
-346372DA 37AA8ABA 6EB30E41 781BC81F
-B5CA66E3 A09DBD3A 3FE85BBD 69893DBD
------- END LICENSE ------
+<p>可以看到，注册码被用逗号分成了四个部分：</p>
+<p>第一部分是注册类型，EX0是免费给的试用类型，我不知道EX1、EX2是什么情况，但试了下，EX1是可以用的</p>
+<p>第二部分是邮件，*@*是免费给的60天试用的，这里要填有效的Exchange邮箱，可以在选项里Valid Emails里看到</p>
+<p>第三部分是license过期日期。</p>
+<p>第四部分是校验码，分别是前三个部分再加上356B4B5C算出来的MD5值。</p>
+<p>例如，注册类型EX1、Exchange邮箱abc@missgao.com，到期日期2015-12-18，可以计算出MD5值为：</p>
+<div class="highlight"><pre><span></span>MD5(EX1,abc@missgao.com,2015-12-18,356B4B5C)=
+d85f9f9e7d8c46bfb04956c2d471a736
 </pre></div>
 
 
-<p>另外，在我这里（archlinux|awesome)sublime text无法使用fcitx输入汉字,网上找的sublime_imfix.c编译后无效。最终找到的解决方案（如果有兴趣点进去看吧，全英的，我只看了个大概，英文不好的我就不去描述了）：
-本人进行了简单整理
-首先需要安装X11 和 Gtk2的开发包，然后：</p>
-<div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/whitequark/sublime-imethod-fix/master/libsublime_text-xim-xcompose.c
-gcc -Wall -Werror -fPIC -shared -ldl <span class="sb">`</span>pkg-config gtk+-2.0 --cflags --libs<span class="sb">`</span> libsublime_text-xim-xcompose.c -o libsublime_text-xim-xcompose.so
-</pre></div>
-
-
-<p>此时可以得到libsublime_text-xim-xcompose.so文件，将其放置在特定目录下（目录不要有空格，我放置在了sublime目录下），设置两个环境变量。</p>
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GTK_IM_MODULE</span><span class="o">=</span>xim
-<span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="nv">$SUBLIMEHOME</span>/libsublime_text-xim-xcompose.so
-</pre></div>
-
-
-<p>$SUBLIMEHOME换成libsublime_text-xim-xcompose.so对应目录。之后再启动sublime_text就可以了。</p></div>
+<p>用计算出的MD5值作为注册码的最后一部分即可注册成功。</p></div>
 	
         <hr>
 
@@ -153,7 +88,7 @@ gcc -Wall -Werror -fPIC -shared -ldl <span class="sb">`</span>pkg-config gtk+-2.
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'missgao'; 
-    var disqus_title = 'LINUX下个别软件破解记录';
+    var disqus_title = 'exquilla 破解';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -228,7 +163,7 @@ gcc -Wall -Werror -fPIC -shared -ldl <span class="sb">`</span>pkg-config gtk+-2.
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2016 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
 </footer>
 
 </div> <!-- /container -->

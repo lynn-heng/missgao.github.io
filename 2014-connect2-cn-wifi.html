@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - exquilla 破解</title>
+    <title>Nemo's Blog - linux连接中文无线</title>
     <meta name="description" content="">
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +55,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>exquilla 破解</h1>
-Mon 09 February 2015
+            <h1>linux连接中文无线</h1>
+Thu 16 October 2014
 
 by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
  
@@ -64,23 +64,11 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 
         </div>
 	
-        <div><p>注册验证相关的算法都在components里面的一个DLL文件exquilla-beta-i686.dll（linux下是一个同名的.so文件），注册码的结构是：</p>
-<div class="highlight"><pre><span></span>EX0,*@*,2015-03-19,80324c6d8724c3e4cd0111b51a5718ad
-</pre></div>
-
-
-<p>可以看到，注册码被用逗号分成了四个部分：</p>
-<p>第一部分是注册类型，EX0是免费给的试用类型，我不知道EX1、EX2是什么情况，但试了下，EX1是可以用的</p>
-<p>第二部分是邮件，*@*是免费给的60天试用的，这里要填有效的Exchange邮箱，可以在选项里Valid Emails里看到</p>
-<p>第三部分是license过期日期。</p>
-<p>第四部分是校验码，分别是前三个部分再加上356B4B5C算出来的MD5值。</p>
-<p>例如，注册类型EX1、Exchange邮箱abc@missgao.com，到期日期2015-12-18，可以计算出MD5值为：</p>
-<div class="highlight"><pre><span></span>MD5(EX1,abc@missgao.com,2015-12-18,356B4B5C)=
-d85f9f9e7d8c46bfb04956c2d471a736
-</pre></div>
-
-
-<p>用计算出的MD5值作为注册码的最后一部分即可注册成功。</p></div>
+        <div><p>在客户的办公室连接内网，可这边的无线名称为中文，我试了下直接将对应中文写入配置文件（使用的netctl连接），结果不行。</p>
+<p>又使用iw 的scan命令查询，得到的对应SSID是以\x开始的16进制串，将对应的一串16进制设置进去报SSID太长，又是不行。</p>
+<p>结果只有先用WINDOWS来连。网上查来查去，也没有找到相应的解决方案。</p>
+<p>后来自己仔细想了下，问题应该出在编码上，我的locale设置的utf-8。中文无线名称的编码应该就是GB2312。后来就在编码上测试了很久，最终发现原来是很简单一件事：</p>
+<p>我还是先建立了一个配置文件，SSID处正常填入中文。此时该文件为UTF8编码，再使用iconv进行编码转换(utf8 -&gt; gb2312)，得到一个新的文件，使用此配置文件连接就直接成功了。如果不是使用netctl而是使用wpa_supplicant命令直接连接，那么将wpa_supplicant的配置文件存成或转换gb2312编码即可。</p></div>
 	
         <hr>
 
@@ -88,7 +76,7 @@ d85f9f9e7d8c46bfb04956c2d471a736
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'missgao'; 
-    var disqus_title = 'exquilla 破解';
+    var disqus_title = 'linux连接中文无线';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -163,7 +151,7 @@ d85f9f9e7d8c46bfb04956c2d471a736
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2016 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
 </footer>
 
 </div> <!-- /container -->
