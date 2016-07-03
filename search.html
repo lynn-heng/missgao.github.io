@@ -2,8 +2,10 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - 2038年问题</title>
-    <meta name="description" content="" />
+    <title>  Seach Nemo's Blog
+</title>
+    <meta name="description" content="  Search results:
+" />
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,6 +19,7 @@
     <link href="http://www.missgao.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
     <link href="http://www.missgao.net/theme/local.css" rel="stylesheet">
     <link href="http://www.missgao.net/theme/pygments.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://www.missgao.net/theme/tipuesearch/tipuesearch.css"/>
 
     <!-- So Firefox can bookmark->"abo this site" -->
         <link href="http://www.missgao.net/feeds/all.atom.xml" rel="alternate" title="Nemo's Blog" type="application/atom+xml">
@@ -57,48 +60,13 @@
     <div class="row">
 
         <div class="span9">
-    <div class='article'>
-        <div class="content-title">
-            <h1>2038年问题</h1>
-Thu 23 October 2014
-
-by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
- 
-
-
-        </div>
-	
-        <div><p>今天习惯性pacman -Syu.发现linux kernel出3.17了。</p>
-<p>网上查了下3.17的新特性，发现有一项是解决2038年问题，以前只知2000年问题，于是查了一下，原来如此：</p>
-<blockquote>
-<p>在计算机应用上，2038年问题可能会导致某些软件在2038年无法正常工作。所有使用UNIX时间表示时间的程序都将受其影响，因为它们以自1970年1月1日经过的秒数（忽略闰秒）来表示时间。这种时间表示法在类Unix（Unix-like）操作系统上是一个标准，并会影响以其C编程语言开发给其他大部份操作系统使用的软件。在大部份的32位操作系统上，此“time_t”数据模式使用一个有正负号的32位元整数(signedint32)存储计算的秒数。依照此“time_t”标准，在此格式能被表示的最后时间是2038年1月19日03:14:07，星期二（UTC）。超过此一瞬间，时间将会被掩盖（wrap around）且在内部被表示为一个负数，并造成程序无法工作，因为它们无法将此时间识别为2038年，而可能会依个别实作而跳回1970年或1901年。错误的计算及动作可能因此产生。</p>
-</blockquote>
-<p>总的来说就是32位的老kernel可能会在2038年的1月19号出问题。</p></div>
-	
-        <hr>
-        <h3>Related content</h3>
-        <ul>
-            <li><a href="http://www.missgao.net/2014-connect2-cn-wifi.html">linux连接中文无线</a></li>
-            <li><a href="http://www.missgao.net/2013-jekyll-blog-on-github.html">在GitHub使用jekyll建站记录</a></li>
-            <li><a href="http://www.missgao.net/2013-64bit-debian-firefox.html">64位debian使用firefox</a></li>
-            <li><a href="http://www.missgao.net/2013-64bit-debian-multiarch.html">Debian wheezy 64位安装32位支持</a></li>
-            <li><a href="http://www.missgao.net/2014-awesome-volume.html">awesome音量实现</a></li>
-          </ul>
-
-        <h2>Comments</h2>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'missgao'; 
-    var disqus_title = '2038年问题';
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
+  <h1>
+    Search Results
+  </h1>
+  <hr />
+  <div>
+    <div id="tipue_search_content"></div>
+  </div>
         </div>
         
         <div class="span3">
@@ -171,6 +139,20 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 <script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://www.missgao.net/theme/scrolltopcontrol.js"></script>
 <script src="http://www.missgao.net/theme/bootstrap-collapse.js"></script>
+  <script src="http://www.missgao.net/theme/tipuesearch/tipuesearch_content.js"></script>
+  <script src="http://www.missgao.net/theme/tipuesearch/tipuesearch_set.js"></script>
+  <script src="http://www.missgao.net/theme/tipuesearch/tipuesearch.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#tipue_search_input').tipuesearch({
+          'mode' : 'json',
+          'show': 6,
+          'newWindow': false,
+          'contentLocation': 'http://www.missgao.net/tipuesearch_content.json'
+      });
+    });
+  </script>
 <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="//hm.baidu.com/hm.js?5f98555052c4e3c64755c6406754d452";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
  
 </body>

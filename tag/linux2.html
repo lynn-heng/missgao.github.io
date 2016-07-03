@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Nemo's Blog - linux</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -42,6 +42,10 @@
             
             <li><a href="http://www.missgao.net/pages/about.html">About</a></li>
         </ul>
+        <form class="navbar-search pull-right" action="http://www.missgao.net/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+            <input type="text" name="q" id="tipue_search_input" class="search-query col-md-2" placeholder="Search" required/>
+            <i class="fa fa-search fa-fw"></i>
+        </form>
         </div>
         
     </div>
@@ -55,6 +59,141 @@
         <div class="span9">
         
 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2014-software-sn-creak.html"><h2>LINUX下个别软件破解记录</h2></a>
+        <div class= "well small"> Tue 30 September 2014
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>SecureCRT：</p>
+<p>因为记录密码、保存LOG、自带SFTP，可以自写脚本等功能，在LINUX下也还是喜欢使用。</p>
+<p>使用16进制编辑器（比如hexedit之类），将6e533e406a45f0b6372f3ea10717000c7120127cd915cef8ed1a3f2c5b替换为785782391ad0b9169f17415dd35f002790175204e3aa65ea10cff20818。之后随便找个注册机或注册码就可以注册了。</p>
+<p>SecureFX：</p>
+<p>使用16进制编辑器（比如hexedit之类），将c847abca184a6c5dfa47dc8efcd700019dc9df3743c640f50be307334fea替换为e02954a71cca592c855c91ecd4170001d6c606d38319cbb0deabebb05126。之后随便找个注册机或注册码就可以注册了。</p>
+<p>Sublime Text Build 2221：</p>
+<p>使用16进制编辑器（比如hexedit之类），将3342 3032替换为3242 3032。然后使用如下注册码：</p>
+<div class="highlight"><pre><span></span>-----BEGIN LICENSE-----
+nemo.heng
+Unlimited User License
+EA7E-21455
+18009210C245D7ED257C7DE27E6DBEAE
+61D50E0DEE242AC0011705E868980175
+86E2A8D9A1A174499D47ECBDD2423ED8
+0E61B819F902723D413237F8887387E1
+EC5F607AFD49D7CED0A20B91500C2E14
+8233575F65C1BB7D27425CEBF7063B11
+19DAA634EDF7DE1940433C89A273E52A
+559239ED4E49383F0A2586041C510369
+-----END LICENSE-----
+</pre></div>
+
+
+<p>Sublime Text Build 3065：</p>
+<p>直接使用下面三个LICENSE中的任意一个注册即可</p>
+<div class="highlight"><pre><span></span>----- BEGIN LICENSE ...</pre></div> <a class="btn btn-info xsmall" href="http://www.missgao.net/2014-software-sn-creak.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2014-my-LFS-BLFS.html"><h2>我的LFS及BLFS</h2></a>
+        <div class= "well small"> Sat 19 April 2014
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>忽然心血来潮又搞了一次LFS，记得以前搞过一次，已经五六年前了，当时只把LFS搞完BLFS不知如何下手，做的过程也只是全程按手册的命令走。</p>
+<p>这次决定一次要把BLFS做完，搞出来一个可以达到日常应用的环境。</p>
+<p>使用最新的LFS7.3｜BLFS6.3，然后开始了长达一周的LFS历程。</p>
+<p>终于完成了，上成果图</p>
+<p><img alt="LFS桌面" src="http://image17-c.poco.cn/mypoco/myphoto/20150705/19/17835138520150705194356045.jpg?1024x641_120" /></p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2014-my-LFS-BLFS.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2013-jekyll-blog-on-github.html"><h2>在GitHub使用jekyll建站记录</h2></a>
+        <div class= "well small"> Wed 24 July 2013
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>LINUX下的安装命令</p>
+<div class="highlight"><pre><span></span>#aptitude install ruby ruby-dev
+#gem install jekyll
+#gem install rdiscount
+</pre></div>
+
+
+<p>安装rdiscount是因为默认的maruku对我写的md文档有些会报错，没心思研究为什么，换rdiscount解决了</p>
+<p>WINDOWS install</p>
+<p>不记得具体步骤了，网上搜一下windows jekyll会有大把的信息。记录下遇到的问题：</p>
+<ol>
+<li>使用安装版的RubyInstaller，我用ZIP版的时间发生一个莫明其妙的问题  </li>
+<li>修改convertible.rb文件解决中文会出错，加入:encoding =&gt; "utf-8".参考路径C:\Ruby\lib\ruby\gems\1.9.1\gems\jekyll-1.0.3\lib\jekyll<div class="highlight"><pre><span></span>self.content = File.read(File.join(base, name),:encoding ...</pre></div></li></ol> <a class="btn btn-info xsmall" href="http://www.missgao.net/2013-jekyll-blog-on-github.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2013-64bit-debian-multiarch.html"><h2>Debian wheezy 64位安装32位支持</h2></a>
+        <div class= "well small"> Mon 22 April 2013
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>wheezy 不像前些版本直接安装ia32-libs ia32-libs-gtk就可以，因为从wheezy开始搞了个Multiarch，具体的含义不是特别清楚，主要是英文不好，不过从debian的网站上还是看明白了命令。</p>
+<p>以下列出方法</p>
+<p>首先加入对应架构支持</p>
+<div class="highlight"><pre><span></span>dpkg --add-architecture i386
+</pre></div>
+
+
+<p>然后在源中加入对应架构，像我使用的163的源</p>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="sx">[arch=amd64,i386]</span> <span class="kp">http://mirrors.163.com/debian/</span> <span class="kp">wheezy</span> <span class="kp">main</span>
+</pre></div>
+
+
+<p>再更新下</p>
+<div class="highlight"><pre><span></span>aptitude update
+</pre></div>
+
+
+<p>然后就可以安装ia32-libs了</p>
+<div class="highlight"><pre><span></span>aptitude install ia32-libs
+</pre></div>
+
+
+<p>在安装时可以看到一些包的后面多出了:i386字样</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2013-64bit-debian-multiarch.html">read more</a></div>
+    </div>	
+				
+
+ 
         
 
  
@@ -202,6 +341,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 
 </div> <!-- /container -->
 <script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://www.missgao.net/theme/scrolltopcontrol.js"></script>
 <script src="http://www.missgao.net/theme/bootstrap-collapse.js"></script>
 <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="//hm.baidu.com/hm.js?5f98555052c4e3c64755c6406754d452";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
  

@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - 2038年问题</title>
+    <title>Nemo's Blog - Bailin Heng</title>
     <meta name="description" content="" />
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,48 +57,86 @@
     <div class="row">
 
         <div class="span9">
+        
+
+        
+
+ 
+
     <div class='article'>
-        <div class="content-title">
-            <h1>2038年问题</h1>
-Thu 23 October 2014
+        <a href="http://www.missgao.net/2013-64bit-debian-firefox.html"><h2>64位debian使用firefox</h2></a>
+        <div class= "well small"> Thu 21 February 2013
 
 by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
  
 
 
-        </div>
-	
-        <div><p>今天习惯性pacman -Syu.发现linux kernel出3.17了。</p>
-<p>网上查了下3.17的新特性，发现有一项是解决2038年问题，以前只知2000年问题，于是查了一下，原来如此：</p>
-<blockquote>
-<p>在计算机应用上，2038年问题可能会导致某些软件在2038年无法正常工作。所有使用UNIX时间表示时间的程序都将受其影响，因为它们以自1970年1月1日经过的秒数（忽略闰秒）来表示时间。这种时间表示法在类Unix（Unix-like）操作系统上是一个标准，并会影响以其C编程语言开发给其他大部份操作系统使用的软件。在大部份的32位操作系统上，此“time_t”数据模式使用一个有正负号的32位元整数(signedint32)存储计算的秒数。依照此“time_t”标准，在此格式能被表示的最后时间是2038年1月19日03:14:07，星期二（UTC）。超过此一瞬间，时间将会被掩盖（wrap around）且在内部被表示为一个负数，并造成程序无法工作，因为它们无法将此时间识别为2038年，而可能会依个别实作而跳回1970年或1901年。错误的计算及动作可能因此产生。</p>
-</blockquote>
-<p>总的来说就是32位的老kernel可能会在2038年的1月19号出问题。</p></div>
-	
-        <hr>
-        <h3>Related content</h3>
-        <ul>
-            <li><a href="http://www.missgao.net/2014-connect2-cn-wifi.html">linux连接中文无线</a></li>
-            <li><a href="http://www.missgao.net/2013-jekyll-blog-on-github.html">在GitHub使用jekyll建站记录</a></li>
-            <li><a href="http://www.missgao.net/2013-64bit-debian-firefox.html">64位debian使用firefox</a></li>
-            <li><a href="http://www.missgao.net/2013-64bit-debian-multiarch.html">Debian wheezy 64位安装32位支持</a></li>
-            <li><a href="http://www.missgao.net/2014-awesome-volume.html">awesome音量实现</a></li>
-          </ul>
+ </div>
+        <div class="summary"><p>主要解决相应wrong ELF class: ELFCLASS64错及插件异常</p>
+<p>不多描述，直接放方法：</p>
+<p>首先要有安装ia32-libs、lib32-libs-gtk，因为firefox只有32位的，但好像他默认是去读32位下对应的so文件，虽然我们装了32位Lib它也不去找。</p>
+<p>说明下我的情况：我直接在mozilla上下载的firefox，然后放在了/usr/local下，这时启动firefox是要用完整路径才可以。</p>
+<p>方法：创建/usr/local/bin/firefox，内容如下</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -e</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib32:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export</span> <span class="nv">GTK_PATH</span><span class="o">=</span>/usr/lib32/gtk-2.0
+/usr/local/firefox/firefox <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; /dev/null <span class="p">&amp;</span>
+</pre></div>
 
-        <h2>Comments</h2>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'missgao'; 
-    var disqus_title = '2038年问题';
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
+<p>具体原因不再解释，懂的自然懂，不懂的解决问题即可</p>
+<p>下面描述下flash插件问题 ...</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2013-64bit-debian-firefox.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2013-install-debian-disk.html"><h2>硬盘安装DEBIAN SQUEEZE 64BIT备忘</h2></a>
+        <div class= "well small"> Tue 19 February 2013
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>这不是一个安装手册，只是自己安装的一些重点项目记录 <br />
+ 安装前的情况<br />
+ 软件：WIN7旗舰版-64bit EN + BT5双系统<br />
+ 硬件：LENOVO E46A</p>
+<p>规划安装后情况：<br />
+ WIN7 64+DEBIAN 64，去除BT5.<br />
+ BT5下/home分区保留，安装完后修改debian的fstab再将/home挂载</p>
+<p>所有常用软件放/usr/local,并将/home/local单独分区，防止再重装</p>
+<ol>
+<li>
+<p>下载DEBIAN 6.0 amd64,放在FAT32或LINUX格式分区下</p>
+<div class="highlight"><pre><span></span>http://cdimage.debian.org/debian-cd/6.0.6/amd64/iso-dvd/debian-6.0.6-amd64-DVD-1.iso
+</pre></div>
+
+
+</li>
+<li>
+<p>下载GRUB4DOS所用引导文件，3个全下，放任一位置，建议放C盘根下 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://www.missgao.net/2013-install-debian-disk.html">read more</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev"><a href="http://www.missgao.net/author/bailin-heng2.html">&larr; Previous</a></li>
+
+    <li class=""><a href="http://www.missgao.net/author/bailin-heng.html">1</a></li>
+    <li class=""><a href="http://www.missgao.net/author/bailin-heng2.html">2</a></li>
+    <li class="active"><a href="http://www.missgao.net/author/bailin-heng3.html">3</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
         </div>
         
         <div class="span3">

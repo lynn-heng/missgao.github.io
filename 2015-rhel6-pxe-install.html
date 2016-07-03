@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Nemo's Blog - PXE网络安装RHEL6</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -42,6 +42,10 @@
             
             <li><a href="http://www.missgao.net/pages/about.html">About</a></li>
         </ul>
+        <form class="navbar-search pull-right" action="http://www.missgao.net/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+            <input type="text" name="q" id="tipue_search_input" class="search-query col-md-2" placeholder="Search" required/>
+            <i class="fa fa-search fa-fw"></i>
+        </form>
         </div>
         
     </div>
@@ -71,6 +75,14 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 支持PXE的网卡在启动时会首先向DHCP SERVER请求一个IP，同时会根据DHCP的选项请求一个引导文件及配置文件，在配置文件中可以设定内核位置。</p></div>
 	
         <hr>
+        <h3>Related content</h3>
+        <ul>
+            <li><a href="http://www.missgao.net/2014-connect2-cn-wifi.html">linux连接中文无线</a></li>
+            <li><a href="http://www.missgao.net/2013-jekyll-blog-on-github.html">在GitHub使用jekyll建站记录</a></li>
+            <li><a href="http://www.missgao.net/2014-year2038.html">2038年问题</a></li>
+            <li><a href="http://www.missgao.net/2013-64bit-debian-firefox.html">64位debian使用firefox</a></li>
+            <li><a href="http://www.missgao.net/2013-64bit-debian-multiarch.html">Debian wheezy 64位安装32位支持</a></li>
+          </ul>
 
         <h2>Comments</h2>
 <div id="disqus_thread"></div>
@@ -156,6 +168,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 
 </div> <!-- /container -->
 <script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://www.missgao.net/theme/scrolltopcontrol.js"></script>
 <script src="http://www.missgao.net/theme/bootstrap-collapse.js"></script>
 <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="//hm.baidu.com/hm.js?5f98555052c4e3c64755c6406754d452";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
  

@@ -5,7 +5,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;该方案可以防止在-i文件所在目录下执行&lt;em&gt;rm -rf *&lt;/em&gt;,因为此此*会被shell扩展为当前目录下的文件，而&lt;em&gt;-i&lt;/em&gt;是rm参数（强制提醒），这时就不会直接将文件删掉了，当然也可以将rm给建个&lt;em&gt;rm -i&lt;/em&gt;的别名（RHEL就是这么干的），但在自己的电脑上还是不时需要删除多个文件的，加完后自己操作不便，所以使用touch的方法还是很不错的。但该方法不能处理如下的情况：&lt;/p&gt;
+&lt;p&gt;该方案可以防止在-i文件所在目录下执行&lt;em&gt;rm -rf *&lt;/em&gt;,因为在此*会被shell扩展为当前目录下的文件，而&lt;em&gt;-i&lt;/em&gt;是rm参数（强制提醒），这时就不会直接将文件删掉了，当然也可以将rm给建个&lt;em&gt;rm -i&lt;/em&gt;的别名（RHEL就是这么干的），但在自己的电脑上还是不时需要删除多个文件的，加完后自己操作不便，所以使用touch的方法还是很不错的。但该方法不能处理如下的情况：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rm -rf ./*
 rm -rf /path/*
 &lt;/pre&gt;&lt;/div&gt;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Nemo's Blog</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -42,6 +42,10 @@
             
             <li><a href="http://www.missgao.net/pages/about.html">About</a></li>
         </ul>
+        <form class="navbar-search pull-right" action="http://www.missgao.net/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+            <input type="text" name="q" id="tipue_search_input" class="search-query col-md-2" placeholder="Search" required/>
+            <i class="fa fa-search fa-fw"></i>
+        </form>
         </div>
         
     </div>
@@ -55,6 +59,115 @@
         <div class="span9">
         
 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2014-shell-for.html"><h2>shell中的for循环疑问</h2></a>
+        <div class= "well small"> Thu 09 October 2014
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>如下，循环时使用<em>s*</em>和<em>ls s*</em>还是有不同的，具体的原因有时间得慢慢研究（自己掌握的基础知识还是不扎实）。问题在于IFS，似乎s*本身直接被扩展出来是带引号（防止被解析出错），但经过ls s*后等于输出了一次引号也就不存在了。
+先记录下以备后面研究。</p>
+<div class="highlight"><pre><span></span><span class="o">[</span>victor@MISSGAO ~<span class="o">]</span>$ touch ss<span class="se">\ </span>s1
+<span class="o">[</span>victor@MISSGAO ~<span class="o">]</span>$ ls -l s*
+-rw-r--r-- <span class="m">1</span> victor users <span class="m">835826</span> Sep <span class="m">28</span> 22:03 search.tgz
+-rwxr--r-- <span class="m">1</span> victor users    <span class="m">472</span> Sep <span class="m">23</span> 16:51 ssh-expect
+-rw-r--r-- <span class="m">1 ...</span></pre></div> <a class="btn btn-info xsmall" href="http://www.missgao.net/2014-shell-for.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2014-software-sn-creak.html"><h2>LINUX下个别软件破解记录</h2></a>
+        <div class= "well small"> Tue 30 September 2014
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>SecureCRT：</p>
+<p>因为记录密码、保存LOG、自带SFTP，可以自写脚本等功能，在LINUX下也还是喜欢使用。</p>
+<p>使用16进制编辑器（比如hexedit之类），将6e533e406a45f0b6372f3ea10717000c7120127cd915cef8ed1a3f2c5b替换为785782391ad0b9169f17415dd35f002790175204e3aa65ea10cff20818。之后随便找个注册机或注册码就可以注册了。</p>
+<p>SecureFX：</p>
+<p>使用16进制编辑器（比如hexedit之类），将c847abca184a6c5dfa47dc8efcd700019dc9df3743c640f50be307334fea替换为e02954a71cca592c855c91ecd4170001d6c606d38319cbb0deabebb05126。之后随便找个注册机或注册码就可以注册了。</p>
+<p>Sublime Text Build 2221：</p>
+<p>使用16进制编辑器（比如hexedit之类），将3342 3032替换为3242 3032。然后使用如下注册码：</p>
+<div class="highlight"><pre><span></span>-----BEGIN LICENSE-----
+nemo.heng
+Unlimited User License
+EA7E-21455
+18009210C245D7ED257C7DE27E6DBEAE
+61D50E0DEE242AC0011705E868980175
+86E2A8D9A1A174499D47ECBDD2423ED8
+0E61B819F902723D413237F8887387E1
+EC5F607AFD49D7CED0A20B91500C2E14
+8233575F65C1BB7D27425CEBF7063B11
+19DAA634EDF7DE1940433C89A273E52A
+559239ED4E49383F0A2586041C510369
+-----END LICENSE-----
+</pre></div>
+
+
+<p>Sublime Text Build 3065：</p>
+<p>直接使用下面三个LICENSE中的任意一个注册即可</p>
+<div class="highlight"><pre><span></span>----- BEGIN LICENSE ...</pre></div> <a class="btn btn-info xsmall" href="http://www.missgao.net/2014-software-sn-creak.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2014-firefox-proxy.html"><h2>firefox代理上网</h2></a>
+        <div class= "well small"> Sun 28 September 2014
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>上网环境不理想，无法外网。好在发现了一台内网的机器可以连接外网，这样就可以用SSH隧道来外网了，因为不在一个网段，所以用外网那台机器做网关也实现不了。就用了代理的方式。</p>
+<p>然而准备打开网页是又出问题了，因为域名无法解析打开网页还是存在问题，可能需要把能上外网的那台机器上装dns server了，然而毕竟那个机器不在我的管理之下，借之上网已属侥幸，再加装软件就有点不合适了。</p>
+<p>网上搜索，竟然发现了FIREFOX的network.proxy.socks_remote_dns参数，该参数将域名传递给socks5服务器去解析，遂试之，果然可行。下面需要找下thunderbird下如何设了:)</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2014-firefox-proxy.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://www.missgao.net/2014-my-LFS-BLFS.html"><h2>我的LFS及BLFS</h2></a>
+        <div class= "well small"> Sat 19 April 2014
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>忽然心血来潮又搞了一次LFS，记得以前搞过一次，已经五六年前了，当时只把LFS搞完BLFS不知如何下手，做的过程也只是全程按手册的命令走。</p>
+<p>这次决定一次要把BLFS做完，搞出来一个可以达到日常应用的环境。</p>
+<p>使用最新的LFS7.3｜BLFS6.3，然后开始了长达一周的LFS历程。</p>
+<p>终于完成了，上成果图</p>
+<p><img alt="LFS桌面" src="http://image17-c.poco.cn/mypoco/myphoto/20150705/19/17835138520150705194356045.jpg?1024x641_120" /></p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2014-my-LFS-BLFS.html">read more</a></div>
+    </div>	
+				
+
+ 
         
 
  
@@ -123,80 +236,15 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 <p>在安装时可以看到一些包的后面多出了:i386字样</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2013-64bit-debian-multiarch.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://www.missgao.net/2013-64bit-debian-firefox.html"><h2>64位debian使用firefox</h2></a>
-        <div class= "well small"> Thu 21 February 2013
-
-by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
- 
-
-
- </div>
-        <div class="summary"><p>主要解决相应wrong ELF class: ELFCLASS64错及插件异常</p>
-<p>不多描述，直接放方法：</p>
-<p>首先要有安装ia32-libs、lib32-libs-gtk，因为firefox只有32位的，但好像他默认是去读32位下对应的so文件，虽然我们装了32位Lib它也不去找。</p>
-<p>说明下我的情况：我直接在mozilla上下载的firefox，然后放在了/usr/local下，这时启动firefox是要用完整路径才可以。</p>
-<p>方法：创建/usr/local/bin/firefox，内容如下</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -e</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib32:<span class="nv">$LD_LIBRARY_PATH</span>
-<span class="nb">export</span> <span class="nv">GTK_PATH</span><span class="o">=</span>/usr/lib32/gtk-2.0
-/usr/local/firefox/firefox <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; /dev/null <span class="p">&amp;</span>
-</pre></div>
-
-
-<p>具体原因不再解释，懂的自然懂，不懂的解决问题即可</p>
-<p>下面描述下flash插件问题 ...</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2013-64bit-debian-firefox.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://www.missgao.net/2013-install-debian-disk.html"><h2>硬盘安装DEBIAN SQUEEZE 64BIT备忘</h2></a>
-        <div class= "well small"> Tue 19 February 2013
-
-by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
- 
-
-
- </div>
-        <div class="summary"><p>这不是一个安装手册，只是自己安装的一些重点项目记录 <br />
- 安装前的情况<br />
- 软件：WIN7旗舰版-64bit EN + BT5双系统<br />
- 硬件：LENOVO E46A</p>
-<p>规划安装后情况：<br />
- WIN7 64+DEBIAN 64，去除BT5.<br />
- BT5下/home分区保留，安装完后修改debian的fstab再将/home挂载</p>
-<p>所有常用软件放/usr/local,并将/home/local单独分区，防止再重装</p>
-<ol>
-<li>
-<p>下载DEBIAN 6.0 amd64,放在FAT32或LINUX格式分区下</p>
-<div class="highlight"><pre><span></span>http://cdimage.debian.org/debian-cd/6.0.6/amd64/iso-dvd/debian-6.0.6-amd64-DVD-1.iso
-</pre></div>
-
-
-</li>
-<li>
-<p>下载GRUB4DOS所用引导文件，3个全下，放任一位置，建议放C盘根下 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://www.missgao.net/2013-install-debian-disk.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://www.missgao.net/index.html">&larr; Previous</a></li>
 
     <li class=""><a href="http://www.missgao.net/index.html">1</a></li>
     <li class="active"><a href="http://www.missgao.net/index2.html">2</a></li>
+    <li class=""><a href="http://www.missgao.net/index3.html">3</a></li>
 
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+    <li class="next"><a href="http://www.missgao.net/index3.html">Next &rarr;</a></li>
 
 </ul>
 </div>
@@ -272,6 +320,7 @@ by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Baili
 
 </div> <!-- /container -->
 <script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://www.missgao.net/theme/scrolltopcontrol.js"></script>
 <script src="http://www.missgao.net/theme/bootstrap-collapse.js"></script>
 <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="//hm.baidu.com/hm.js?5f98555052c4e3c64755c6406754d452";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
  
