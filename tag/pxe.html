@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - Archives</title>
+    <title>Nemo's Blog - pxe</title>
     <meta name="description" content="" />
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,75 +57,43 @@
     <div class="row">
 
         <div class="span9">
+        
 
-<h1>Archives</h1>
-
-<table class="table">
-    <tbody>
-        <tr>
-        <td>04 Jul 2016</td>
-        <td><a href='http://www.missgao.net/2016-update-mysite.html'>也谈Pelican+Github博客搭建:个人站重构记录</a></td>
-        </tr>
-        <tr>
-        <td>01 Jul 2016</td>
-        <td><a href='http://www.missgao.net/2016-prevent-rm-mistakenly-deleted.html'>linux下防rm命令误删</a></td>
-        </tr>
-        <tr>
-        <td>18 Jul 2015</td>
-        <td><a href='http://www.missgao.net/2015-rhel6-pxe-install.html'>PXE网络安装RHEL6</a></td>
-        </tr>
-        <tr>
-        <td>09 Feb 2015</td>
-        <td><a href='http://www.missgao.net/2015-crack-exquilla.html'>exquilla 破解</a></td>
-        </tr>
-        <tr>
-        <td>29 Oct 2014</td>
-        <td><a href='http://www.missgao.net/2014-awesome-volume.html'>awesome音量实现</a></td>
-        </tr>
-        <tr>
-        <td>23 Oct 2014</td>
-        <td><a href='http://www.missgao.net/2014-year2038.html'>2038年问题</a></td>
-        </tr>
-        <tr>
-        <td>16 Oct 2014</td>
-        <td><a href='http://www.missgao.net/2014-connect2-cn-wifi.html'>linux连接中文无线</a></td>
-        </tr>
-        <tr>
-        <td>09 Oct 2014</td>
-        <td><a href='http://www.missgao.net/2014-shell-for.html'>shell中的for循环疑问</a></td>
-        </tr>
-        <tr>
-        <td>30 Sep 2014</td>
-        <td><a href='http://www.missgao.net/2014-software-sn-creak.html'>LINUX下个别软件破解记录</a></td>
-        </tr>
-        <tr>
-        <td>28 Sep 2014</td>
-        <td><a href='http://www.missgao.net/2014-firefox-proxy.html'>firefox代理上网</a></td>
-        </tr>
-        <tr>
-        <td>19 Apr 2014</td>
-        <td><a href='http://www.missgao.net/2014-my-LFS-BLFS.html'>我的LFS及BLFS</a></td>
-        </tr>
-        <tr>
-        <td>24 Jul 2013</td>
-        <td><a href='http://www.missgao.net/2013-jekyll-blog-on-github.html'>在GitHub使用jekyll建站记录</a></td>
-        </tr>
-        <tr>
-        <td>22 Apr 2013</td>
-        <td><a href='http://www.missgao.net/2013-64bit-debian-multiarch.html'>Debian wheezy 64位安装32位支持</a></td>
-        </tr>
-        <tr>
-        <td>21 Feb 2013</td>
-        <td><a href='http://www.missgao.net/2013-64bit-debian-firefox.html'>64位debian使用firefox</a></td>
-        </tr>
-        <tr>
-        <td>19 Feb 2013</td>
-        <td><a href='http://www.missgao.net/2013-install-debian-disk.html'>硬盘安装DEBIAN SQUEEZE 64BIT备忘</a></td>
-        </tr>
-    </tbody>
-</table>
+        
 
 
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://www.missgao.net/2015-rhel6-pxe-install.html"><h1>PXE网络安装RHEL6</h1></a>
+Sat 18 July 2015
+
+by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><p>首先，只是通过网络方式安装，并没有实现自动。因为以前一直使用U盘装服务器，近来U盘丢失，还没来得及买，但又有安装的需求，于是就使用了PXE进行了下网络安装，因为着急装，只是大致看了两个介绍文章及ARCH WIKI，也就没有专门去研究kickstart的自动了,后面有时间再专门研究下。</p>
+<p>所需软件：dnsmasq,apache(nginx或其它http服务都成)</p>
+<p>为什么是dnsmasq?因为它本身包含了TFTP、DHCP服务，PXE启动主要所需的东西都包含了。另外我以前装过dnsmasq来做本地DNS缓存服务，省得再去装TFTP和DHCP服务了。</p>
+<p>大致逻辑：
+支持PXE的网卡在启动时会首先向DHCP SERVER请求一个IP，同时会根据DHCP的选项请求一个引导文件及配置文件，在配置文件中可以设定内核位置。</p></div>
+        <hr />
+    </div>
+		
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://www.missgao.net/tag/pxe.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
         </div>
         
         <div class="span3">
@@ -191,7 +159,7 @@
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2016 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
+<p><a href="http://www.missgao.net">Nemo's Blog</a> &copy; Bailin Heng 2015 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png" /></a></p>
 </footer>
 
 </div> <!-- /container -->

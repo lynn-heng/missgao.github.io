@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Nemo's Blog - linux</title>
+    <title>Nemo's Blog - pelican</title>
     <meta name="description" content="" />
     <meta name="author" content="Bailin Heng">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -462,136 +462,13 @@ svn co https://github.com/getpelican/pelican-plugins/trunk/related_posts
         <hr />
     </div>
 		
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://www.missgao.net/2016-prevent-rm-mistakenly-deleted.html"><h2>linux下防rm命令误删</h2></a>
-        <div class= "well small"> Fri 01 July 2016
-
-by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
- 
-
-
- </div>
-        <div class="summary"><p>前几天在自己的机器上一时手误在一个工作目录<em>rm -f *</em>了一下，执行完就感觉不对，有种双11想剁手的冲动。好在这个工作目录中的文件不多，前段时间给其它人都分别发过，在邮件的附件中一个个找回了。但报着不怕出问题，但问题不能重复出的态度，决定找一个方法来避免以后的误犯。<br />
-一通GOOGLE后发现了一个方案：使用创建一个-i文件的方法</p>
-<div class="highlight"><pre><span></span>touch -- -i
-</pre></div>
-
-
-<p>该方案可以防止在-i文件所在目录下执行<em>rm -rf *</em>,因为在此*会被shell扩展为当前目录下的文件，而<em>-i</em>是rm参数（强制提醒），这时就不会直接将文件删掉了，当然也可以将rm给建个<em>rm -i</em>的别名（RHEL就是这么干的），但在自己的电脑上还是不时需要删除多个文件的，加完后自己操作不便，所以使用touch的方法还是很不错的。但该方法不能处理如下的情况：</p>
-<div class="highlight"><pre><span></span>rm -rf ./*
-rm -rf /path/*
-</pre></div>
-
-
-<p>因为这时SHELL扩展出来的<em>-i</em>前面带有路径，已经不能被解析为参数了。<br />
-还有一个习惯要以后注意养成，就是将<em>-f</em>或<em>-rf</em>的参数放在rm命令的最后边 ...</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2016-prevent-rm-mistakenly-deleted.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://www.missgao.net/2015-rhel6-pxe-install.html"><h2>PXE网络安装RHEL6</h2></a>
-        <div class= "well small"> Sat 18 July 2015
-
-by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
- 
-
-
- </div>
-        <div class="summary"><p>首先，只是通过网络方式安装，并没有实现自动。因为以前一直使用U盘装服务器，近来U盘丢失，还没来得及买，但又有安装的需求，于是就使用了PXE进行了下网络安装，因为着急装，只是大致看了两个介绍文章及ARCH WIKI，也就没有专门去研究kickstart的自动了,后面有时间再专门研究下。</p>
-<p>所需软件：dnsmasq,apache(nginx或其它http服务都成)</p>
-<p>为什么是dnsmasq?因为它本身包含了TFTP、DHCP服务，PXE启动主要所需的东西都包含了。另外我以前装过dnsmasq来做本地DNS缓存服务，省得再去装TFTP和DHCP服务了。</p>
-<p>大致逻辑：
-支持PXE的网卡在启动时会首先向DHCP SERVER请求一个IP，同时会根据DHCP的选项请求一个引导文件及配置文件，在配置文件中可以设定内核位置。</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2015-rhel6-pxe-install.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://www.missgao.net/2014-year2038.html"><h2>2038年问题</h2></a>
-        <div class= "well small"> Thu 23 October 2014
-
-by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
- 
-
-
- </div>
-        <div class="summary"><p>今天习惯性pacman -Syu.发现linux kernel出3.17了。</p>
-<p>网上查了下3.17的新特性，发现有一项是解决2038年问题，以前只知2000年问题，于是查了一下，原来如此：</p>
-<blockquote>
-<p>在计算机应用上，2038年问题可能会导致某些软件在2038年无法正常工作。所有使用UNIX时间表示时间的程序都将受其影响，因为它们以自1970年1月1日经过的秒数（忽略闰秒）来表示时间。这种时间表示法在类Unix（Unix-like）操作系统上是一个标准，并会影响以其C编程语言开发给其他大部份操作系统使用的软件。在大部份的32位操作系统上，此“time_t”数据模式使用一个有正负号的32位元整数(signedint32)存储计算的秒数。依照此“time_t”标准，在此格式能被表示的最后时间是2038年1月19日03:14:07，星期二（UTC）。超过此一瞬间，时间将会被掩盖（wrap around）且在内部被表示为一个负数，并造成程序无法工作，因为它们无法将此时间识别为2038年，而可能会依个别实作而跳回1970年或1901年。错误的计算及动作可能因此产生。</p>
-</blockquote>
-<p>总的来说就是32位的老kernel可能会在2038年的1月19号出问题。</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2014-year2038.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://www.missgao.net/2014-connect2-cn-wifi.html"><h2>linux连接中文无线</h2></a>
-        <div class= "well small"> Thu 16 October 2014
-
-by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
- 
-
-
- </div>
-        <div class="summary"><p>在客户的办公室连接内网，可这边的无线名称为中文，我试了下直接将对应中文写入配置文件（使用的netctl连接），结果不行。</p>
-<p>又使用iw 的scan命令查询，得到的对应SSID是以\x开始的16进制串，将对应的一串16进制设置进去报SSID太长，又是不行。</p>
-<p>结果只有先用WINDOWS来连。网上查来查去，也没有找到相应的解决方案。</p>
-<p>后来自己仔细想了下，问题应该出在编码上，我的locale设置的utf-8。中文无线名称的编码应该就是GB2312。后来就在编码上测试了很久，最终发现原来是很简单一件事：</p>
-<p>我还是先建立了一个配置文件，SSID处正常填入中文。此时该文件为UTF8编码，再使用iconv进行编码转换(utf8 -&gt; gb2312)，得到一个新的文件，使用此配置文件连接就直接成功了。如果不是使用netctl而是使用wpa_supplicant命令直接连接，那么将wpa_supplicant的配置文件存成或转换gb2312编码即可。</p> <a class="btn btn-info xsmall" href="http://www.missgao.net/2014-connect2-cn-wifi.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://www.missgao.net/2014-shell-for.html"><h2>shell中的for循环疑问</h2></a>
-        <div class= "well small"> Thu 09 October 2014
-
-by <a class="url fn" href="http://www.missgao.net/author/bailin-heng.html">Bailin Heng</a>
- 
-
-
- </div>
-        <div class="summary"><p>如下，循环时使用<em>s*</em>和<em>ls s*</em>还是有不同的，具体的原因有时间得慢慢研究（自己掌握的基础知识还是不扎实）。问题在于IFS，似乎s*本身直接被扩展出来是带引号（防止被解析出错），但经过ls s*后等于输出了一次引号也就不存在了。
-先记录下以备后面研究。</p>
-<div class="highlight"><pre><span></span><span class="o">[</span>victor@MISSGAO ~<span class="o">]</span>$ touch ss<span class="se">\ </span>s1
-<span class="o">[</span>victor@MISSGAO ~<span class="o">]</span>$ ls -l s*
--rw-r--r-- <span class="m">1</span> victor users <span class="m">835826</span> Sep <span class="m">28</span> 22:03 search.tgz
--rwxr--r-- <span class="m">1</span> victor users    <span class="m">472</span> Sep <span class="m">23</span> 16:51 ssh-expect
--rw-r--r-- <span class="m">1 ...</span></pre></div> <a class="btn btn-info xsmall" href="http://www.missgao.net/2014-shell-for.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
 
-    <li class="active"><a href="http://www.missgao.net/category/linux.html">1</a></li>
-    <li class=""><a href="http://www.missgao.net/category/linux2.html">2</a></li>
+    <li class="active"><a href="http://www.missgao.net/tag/pelican.html">1</a></li>
 
-    <li class="next"><a href="http://www.missgao.net/category/linux2.html">Next &rarr;</a></li>
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
 
 </ul>
 </div>
