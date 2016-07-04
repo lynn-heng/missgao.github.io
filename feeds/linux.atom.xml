@@ -78,7 +78,7 @@ pelican-quickstart
 
 &lt;p&gt;根据提示一步步输入相应的配置项，不知道如何设置的接受默认即可，后续可以通过编辑pelicanconf.py文件更改配置)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; What will be the default language of this web site? &lt;span class="o"&gt;[&lt;/span&gt;en&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;#这里填cn&lt;/span&gt;
-&amp;gt; What is your &lt;span class="nb"&gt;time&lt;/span&gt; zone? &lt;span class="o"&gt;[&lt;/span&gt;Europe/Paris&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;#这里填Asis/Shanghai&lt;/span&gt;
+&amp;gt; What is your &lt;span class="nb"&gt;time&lt;/span&gt; zone? &lt;span class="o"&gt;[&lt;/span&gt;Europe/Paris&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;#这里填Asia/Shanghai&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
