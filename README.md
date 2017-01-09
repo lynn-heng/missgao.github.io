@@ -1,9 +1,8 @@
 www.missgao.net
 ------------
 
-nemo.heng的个人笔记站。原来使用的Jekyll,现转至pelican。  
-偶尔写点东西。  
-建站过程：[http://www.missgao.net/2016-update-mysite.html](http://www.missgao.net/2016-update-mysite.html)
+nemo.heng的个人笔记站。  
+偶尔写点东西。
 
 ### 版权许可
 [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png)][cc]
