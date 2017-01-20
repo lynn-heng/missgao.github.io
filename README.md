@@ -4,6 +4,8 @@ www.missgao.net
 nemo.heng的个人笔记  
 偶尔写点东西。
 
+最的的界面修改自http://mazhuang.org
+
 ### 版权许可
 [![知识共享许可协议](https://i.creativecommons.org/l/by-nc-sa/3.0/cn/88x31.png)][cc]
 
