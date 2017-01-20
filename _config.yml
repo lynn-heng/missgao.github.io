@@ -1,34 +1,118 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# title: Nemo's Blog
+# email: mail8@qq.com
+# description: > # this means to ignore newlines until "baseurl:"
+#   Write an awesome description for your new site here. You can edit this
+#   line in _config.yml. It will appear in your document head meta (for
+#   Google search results) and in your feed.xml site description.
+# baseurl: "" # the subpath of your site, e.g. /blog
+# url: "http://www.missgao.net" # the base hostname & protocol for your site, e.g. http://example.com
+# twitter_username: jekyllrb
+# github_username:  missgao
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Nemo's Blog
-email: mail8@qq.com
+# # Build settings
+# markdown: kramdown
+# kramdown:
+#   input: GFM
+# highlighter: rouge
+# theme: minima
+# gems:
+#   - jekyll-feed
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+
+
+title: "nemo's blog"
+email: "mail8@qq.com"
+date_format: "ordinal"
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  missgao
+  偶尔更新
+  nemo的笔记
+baseurl: ""
+url: "http://www.missgao.net"
+keywords: missgao, nemo heng, heng
+timezone: "Asia/Shanghai"
+encoding: "utf-8"
+side_bar_repo_limit: 5
+author: "nemo heng"
 
-# Build settings
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: 首页
+
+  -
+    href: /categories/
+    label: 分类
+
+  -
+    href: /wiki/
+    label: 维基
+
+  -
+    href: /links/
+    label: 链接
+
+  -
+    href: /about/
+    label: 关于
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
 markdown: kramdown
-theme: minima
+kramdown:
+    input: GFM
+highlighter: rouge
+paginate: 8
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:title/
 gems:
-  - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock
+    - jekyll-github-metadata
+    - rouge
+    # - jekyll-html-pipeline
+    - jekyll-paginate 
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+    # - jekyll-mentions
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
+
+repository: missgao/missgao.github.io
+
+# ---------------- #
+#      Socials     #
+# ---------------- #
+github_username: missgao
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, duoshuo
+comments_provider: disqus
+# !!!Important!!! Please modify usernames below to yours
+duoshuo_username: missgao
+disqus_username: missgao
+lazy_load_duoshuo: true
+
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+google:
+    analytics_id: 
+
+baidu:
+    analytics_id: 5f98555052c4e3c64755c6406754d452
