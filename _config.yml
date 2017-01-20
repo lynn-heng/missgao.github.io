@@ -103,11 +103,11 @@ github_username: missgao
 #      Comments    #
 # ---------------- #
 # support provider: disqus, duoshuo
-comments_provider: disqus
+comments_provider: duoshuo
 # !!!Important!!! Please modify usernames below to yours
 duoshuo_username: missgao
 disqus_username: missgao
-lazy_load_duoshuo: true
+# lazy_load_duoshuo: true
 
 # ---------------- #
 #    Analytics     #
