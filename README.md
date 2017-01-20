@@ -1,7 +1,7 @@
 www.missgao.net
 ------------
 
-nemo.heng的个人笔记站。  
+nemo.heng的个人笔记  
 偶尔写点东西。
 
 ### 版权许可
