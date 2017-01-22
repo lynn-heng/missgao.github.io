@@ -1,40 +1,14 @@
-# title: Nemo's Blog
-# email: mail8@qq.com
-# description: > # this means to ignore newlines until "baseurl:"
-#   Write an awesome description for your new site here. You can edit this
-#   line in _config.yml. It will appear in your document head meta (for
-#   Google search results) and in your feed.xml site description.
-# baseurl: "" # the subpath of your site, e.g. /blog
-# url: "http://www.missgao.net" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: jekyllrb
-# github_username:  missgao
-
-# # Build settings
-# markdown: kramdown
-# kramdown:
-#   input: GFM
-# highlighter: rouge
-# theme: minima
-# gems:
-#   - jekyll-feed
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-
-
 title: "nemo's blog"
 email: "mail8@qq.com"
 date_format: "ordinal"
-description: > # this means to ignore newlines until "baseurl:"
-  偶尔更新
-  nemo的笔记
+description: "偶尔更新 nemo的笔记"
 baseurl: ""
 url: "http://www.missgao.net"
-keywords: missgao, nemo heng, heng
+keywords: "missgao, nemo heng, nemo"
 timezone: "Asia/Shanghai"
 encoding: "utf-8"
 side_bar_repo_limit: 5
-author: "nemo heng"
+author: "nemo.heng"
 
 # ---------------- #
 #    Navigation    #
@@ -86,6 +60,7 @@ gems:
     - jekyll-sitemap
     - jekyll-feed
     - jemoji
+    - jekyll-toc
     # - jekyll-mentions
 collections:
     wiki:
@@ -104,7 +79,8 @@ github_username: missgao
 # ---------------- #
 # support provider: disqus, duoshuo
 comments_provider: duoshuo
-# !!!Important!!! Please modify usernames below to yours
+# !!!Important!!!
+# Please modify usernames below to yours
 duoshuo_username: missgao
 disqus_username: missgao
 # lazy_load_duoshuo: true

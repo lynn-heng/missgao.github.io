@@ -4,38 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="/assets/vendor/primer-css/css/primer.css">
-    <link rel="stylesheet" href="/assets/vendor/primer-markdown/dist/user-content.min.css">
-    <link rel="stylesheet" href="/assets/vendor/octicons/octicons/octicons.css">
-    <link rel="stylesheet" href="/assets/css/components/collection.css">
-    <link rel="stylesheet" href="/assets/css/components/repo-card.css">
-    <link rel="stylesheet" href="/assets/css/sections/repo-list.css">
-    <link rel="stylesheet" href="/assets/css/sections/mini-repo-list.css">
-    <link rel="stylesheet" href="/assets/css/components/boxed-group.css">
-    <link rel="stylesheet" href="/assets/css/globals/common.css">
-    <link rel="stylesheet" href="/assets/vendor/share.js/dist/css/share.min.css">
-    <link rel="stylesheet" href="/assets/css/globals/responsive.css">
-    <link rel="stylesheet" href="/assets/css/posts/index.css">
-    <!-- Latest compiled and minified CSS -->
-    {% for css in page.css %}
-    <link rel="stylesheet" href="/assets/css/{{css}}">
-    {% endfor %}
-
-    {% if site.ios_app_name %}
-       <meta name="apple-mobile-web-app-capable" content="yes">
-       <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    {% endif %}
-    <link rel="canonical" href="{{ page.url | prepend: site.url }}">
-    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.subscribe_rss }}">
-    <link rel="shortcut icon" href="/favicon.ico">
-    {% if page.title %}
-    <meta property="og:title" content="{{ page.title }}">
-      {% if page.keywords %}
-      {% assign keywords = page.keywords %}
-      {% else %}
-      {% assign keywords = site.keywords %}
-      {% endif %}
+    {% if site.ios_app_name %}<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">{% endif %}
+    {% if page.title %}<meta property="og:title" content="{{ page.title }}">
+    {% if page.keywords %}{% assign keywords = page.keywords %}{% else %}{% assign keywords = site.keywords %}{% endif %}
     <meta name="keywords" content="{{ keywords | strip_html | strip_newlines}}">
     <meta name="og:keywords" content="{{ keywords | strip_html | strip_newlines}}">
       {% if page.excerpt %}
@@ -50,15 +22,11 @@
       {% endif %}
     {% else %}
     <meta name="keywords" content="{{ site.keywords }}">
-    <meta name="description" content="{{ site.description }}">
-    {% endif %}
-    {% if page.og_image_url %}
-    <meta property="og:image" content="{{ page.og_image_url }}">
-    {% else %}
-        {% if page.photo_url %}
+    <meta name="description" content="{{ site.description }}">{% endif %}
+    {% if page.og_image_url %}<meta property="og:image" content="{{ page.og_image_url }}">
+    {% else %}{% if page.photo_url %}
     <meta property="og:image" content="{{ page.photo_url }}">
-        {% endif %}
-    {% endif %}
+        {% endif %}{% endif %}
     <meta property="og:url" content="{{ site.url }}{{ page.url | remove_first:'index.html' }}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:type" content="article">
@@ -66,9 +34,34 @@
     {% if page.date %}
     <meta property="article:published_time" content="{{ page.date | date: '%Y-%m-%d' }}">
     {% endif %}
+    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/assets/css/components/collection.css">
+    <link rel="stylesheet" href="/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="/assets/css/globals/common.css">
+    <link rel="stylesheet" href="/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    {% for css in page.css %}<link rel="stylesheet" href="/assets/css/{{css}}">{% endfor %}
+    <link rel="canonical" href="{{ page.url | prepend: site.url }}">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.subscribe_rss }}">
+    <link rel="shortcut icon" href="/favicon.ico">
     <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="/assets/js/jquery-ui.js"></script>
     <script type="text/javascript">
+    {% if site.baidu.analytics_id %}var _hmt=_hmt||[];
+    (function(){
+        var hm=document.createElement("script");
+        hm.src="//hm.baidu.com/hm.js?{{ site.baidu.analytics_id }}";
+        var s=document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm,s)
+    })();{% endif %}
     function toggleMenu() {
         var nav = document.getElementsByClassName("site-header-nav")[0];
         if (nav.style.display == "inline-flex") {
@@ -95,4 +88,3 @@
             </nav>
         </div>
     </header>
-    <!-- / header -->
